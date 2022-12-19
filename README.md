@@ -37,8 +37,12 @@ mix.plot_molar_ratio_carbon
 You can also obtain numerical values of conversions, yields, molar ratio compositions etc. by using the following:
 ```Python
 mix.conversions
+mix.conversions_carbon
 mix.yields
+mix.yields_carbon
 mix.ratio_h2_co
+mix.ratio_h2_co_carbon
 mix.multiple_temperatures(temp_range)
+mix.multiple_temperatures_carbon(temp_range)
 ```
 
