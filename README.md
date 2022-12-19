@@ -26,26 +26,26 @@ mix.plot_conversions_yields_carbon
 ```
 ![conversions_yields_gas](https://user-images.githubusercontent.com/91277572/208423371-fb599ff0-6ad8-471c-b060-aaa67373c650.png)
 
-Create plot for the gas mixture compositions considering carbon formation.
+Create plot for the gas mixture compositions considering carbon.
 ```Python
 mix.plot_molar_ratio_carbon
 ```
 ![molar_ratio_carbon](https://user-images.githubusercontent.com/91277572/208422921-4a0a8ed5-585d-45b9-9cfa-d442563caef5.png)
 
-Create plot for the gas mixture conversions, yields and ratios considering carbon formation.
+Create plot for the gas mixture conversions, yields and ratios considering carbon.
 ```Python
 mix.plot_molar_ratio_carbon
 ```
 ![conversions_yields_carbon](https://user-images.githubusercontent.com/91277572/208424006-013497e9-451a-496b-b252-3d88f6cbb111.png)
 
-You can also obtain numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon formation) by using the following:
+You can also obtain numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon) by using the following:
 ```Python
 mix.conversions
-mix.conversions_carbon
+mix.conversions_
 mix.yields
 mix.yields_carbon
 mix.ratio_h2_co
 mix.ratio_h2_co_carbon
-mix.multiple_temperatures(mix.T_range)
-mix.multiple_temperatures_carbon(mix.T_range)
+mix.multiple_temperatures(mix.T_range) # molar compositions for gas mixture
+mix.multiple_temperatures_carbon(mix.T_range) # molar compositions for gas mixture including carbon
 ```
