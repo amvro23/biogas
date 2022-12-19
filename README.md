@@ -3,7 +3,7 @@ Thermodynamic and kinetic analysis of Biogas Dry Reforming
 
 # Install
 ```Python
-pip install -e git+https://github.com/amvro23/Biogas_reforming/#egg=biogas
+pip install -e git+https://github.com/amvro23/biogas/#egg=biogas
 ```
 
 Note: It might be useful to write "git+https://github.com/amvro23/biogas/#egg=biogas" if installing directly from a Python interpreter as # can be interpreted as a comment.
