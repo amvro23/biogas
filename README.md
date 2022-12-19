@@ -44,7 +44,7 @@ Create plot for the gas mixture compositions considering carbon.
 ```Python
 mix.plot_molar_ratio_carbon
 ```
-![molar_ratio_carbon](https://user-images.githubusercontent.com/91277572/208422921-4a0a8ed5-585d-45b9-9cfa-d442563caef5.png)
+![molar_ratio_carbon](https://user-images.githubusercontent.com/91277572/208470540-eba165f3-4fda-429d-845c-653a2d05f213.png)
 
 Create plot for the gas mixture conversions, yields and ratios considering carbon.
 ```Python
