@@ -6,8 +6,11 @@ Thermodynamic and kinetic analysis of Biogas Dry Reforming
 ```ruby
 from biogas_gibbs_minimization import CarbonEquilibrium
 ```
-Create an object for the desired temperature and pressure of the system
+Create an object for the desired temperature and pressure of the system (e.g., 800 K, 1 atm)
 ```
-mix = CarbonEquilibrium(700, 1)
-mix.plot_molar_ratio_carbon
+mix = CarbonEquilibrium(800, 1)
+```
+Create plots for the gas mixture
+```ruby
+mix.plot_molar_ratio
 ```
