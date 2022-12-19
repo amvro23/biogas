@@ -12,7 +12,7 @@ mix = CarbonEquilibrium(800, 1)
 ```
 Create plot for the gas mixture
 ```ruby
-```mix```.plot_molar_ratio
+mix.plot_molar_ratio
 ```
 Create plot for the gas mixture considering carbon formation
 ```ruby
