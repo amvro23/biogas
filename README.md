@@ -38,7 +38,7 @@ Create plot for the gas mixture conversions, yields and ratios.
 ```Python
 mix.plot_conversions_yields_carbon
 ```
-![conversions_yields_gas](https://user-images.githubusercontent.com/91277572/208423371-fb599ff0-6ad8-471c-b060-aaa67373c650.png)
+![conversions_yields_gas](https://user-images.githubusercontent.com/91277572/208469178-6e58a363-3ff3-46bc-80a9-f09ca3b23ffe.png)
 
 Create plot for the gas mixture compositions considering carbon.
 ```Python
