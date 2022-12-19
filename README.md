@@ -11,8 +11,10 @@ Create an object for the desired temperature and pressure of the system (e.g., 8
 mix = CarbonEquilibrium(800, 1)
 ```
 Create plot for the gas mixture
-```ruby
-mix.plot_molar_ratio
+```
+mix.
+ruby
+plot_molar_ratio
 ```
 Create plot for the gas mixture considering carbon formation
 ```ruby
