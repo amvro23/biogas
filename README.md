@@ -7,7 +7,7 @@ Thermodynamic and kinetic analysis of Biogas Dry Reforming
 from biogas_gibbs_minimization import CarbonEquilibrium
 ```
 Create an object for the gas mixture of biogas (default values are T = 500K, P = 1atm, P0 = 1atm). 
-The temperature range for the calculations was set in the biogas_thermodynamics_nist.py file.
+The temperature range (temp_range) for the calculations was set in the biogas_thermodynamics_nist.py file.
 ```
 mix = CarbonEquilibrium()
 ```
