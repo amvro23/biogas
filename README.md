@@ -20,13 +20,16 @@ Create plot for the gas mixture conversions, yields and ratios.
 ```Python
 mix.plot_conversions_yields_carbon
 ```
-![molar_ratio_carbon](https://user-images.githubusercontent.com/91277572/208422921-4a0a8ed5-585d-45b9-9cfa-d442563caef5.png)
+![conversions_yields_gas](https://user-images.githubusercontent.com/91277572/208423371-fb599ff0-6ad8-471c-b060-aaa67373c650.png)
 
 Create plot for the gas mixture compositions considering carbon formation.
 ```Python
 mix.plot_molar_ratio_carbon
 ```
+![molar_ratio_carbon](https://user-images.githubusercontent.com/91277572/208422921-4a0a8ed5-585d-45b9-9cfa-d442563caef5.png)
+
 Create plot for the gas mixture conversions, yields and ratios considering carbon formation.
 ```Python
 mix.plot_molar_ratio_carbon
 ```
+![conversions_yields_carbon](https://user-images.githubusercontent.com/91277572/208423594-c0d02bd8-be67-455e-930b-6cc3042bfd76.png)
