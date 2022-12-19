@@ -4,7 +4,7 @@ Thermodynamic and kinetic analysis of Biogas Dry Reforming
 # Equilibrium - Usage
 
 ```Python
-from biogas_gibbs_minimization import CarbonEquilibrium
+from gibbs_min import CarbonEquilibrium
 ```
 Create an object for the gas mixture of biogas (default values are T = 500K, P = 1atm, P0 = 1atm).
 ```
