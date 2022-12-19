@@ -32,7 +32,7 @@ Create plot for the gas mixture compositions.
 ```Python
 mix.plot_molar_ratio
 ```
-![molar_ratio_gas](https://user-images.githubusercontent.com/91277572/208422723-ac6be97a-8302-4e15-bf37-a0c5e39c63c1.png)
+![molar_ratio_gas](https://user-images.githubusercontent.com/91277572/208469749-f7682117-3dae-471d-bbfe-5d32b41e7533.png)
 
 Create plot for the gas mixture conversions, yields and ratios.
 ```Python
