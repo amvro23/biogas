@@ -32,4 +32,4 @@ Create plot for the gas mixture conversions, yields and ratios considering carbo
 ```Python
 mix.plot_molar_ratio_carbon
 ```
-![conversions_yields_carbon](https://user-images.githubusercontent.com/91277572/208423594-c0d02bd8-be67-455e-930b-6cc3042bfd76.png)
+![conversions_yields_carbon](https://user-images.githubusercontent.com/91277572/208424006-013497e9-451a-496b-b252-3d88f6cbb111.png)
