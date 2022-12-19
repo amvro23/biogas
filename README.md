@@ -47,6 +47,4 @@ mix.yields
 mix.yields_carbon
 mix.ratio_h2_co
 mix.ratio_h2_co_carbon
-mix.multiple_temperatures(temp_range)
-mix.multiple_temperatures_carbon(temp_range)
 ```
