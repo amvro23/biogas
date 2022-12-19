@@ -6,7 +6,8 @@ Thermodynamic and kinetic analysis of Biogas Dry Reforming
 ```Python
 from biogas_gibbs_minimization import CarbonEquilibrium
 ```
-Create an object for the desired temperature and pressure of the system (default values are T = 500K, R = 8.314e-3 kJ/mol/K, P = 1atm, P0 = 1atm).
+Create an object for the desired temperature and pressure of the system (default values are T = 500K, R = 8.314e-3 kJ/mol/K, P = 1atm, P0 = 1atm). 
+The temperature range for the calculations was set in the biogas_thermodynamics_nist.py file.
 ```
 mix = CarbonEquilibrium()
 ```
