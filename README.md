@@ -11,6 +11,10 @@ The temperature range (temp_range) for the calculations was set in the biogas_th
 ```
 mix = CarbonEquilibrium()
 ```
+Define the temperature range for equilibrium analysis (default is 573.15K to 1213.15K)
+```
+mix.T_range = np.linspace(573.15, 1213.15)
+```
 Create plot for the gas mixture compositions.
 ```Python
 mix.plot_molar_ratio
