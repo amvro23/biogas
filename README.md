@@ -23,10 +23,10 @@ mix.T_range = np.linspace(573.15, 1213.15)
 ```
 Define the inlet ratio of biogas mixture which can be diluted or not (default value is 50% biogas & 50% argon inert gas).
 ```Python
-mix.inlet = np.array([0.5, 0.5, 0.0]) # for diluted mixture
+mix.inlet = np.array([0.3, 0.2, 0.5]) # for diluted mixture
 ```
 ```Python
-mix.inlet = np.array([0.5, 0.5, 0.0]) # for pure biogas
+mix.inlet = np.array([0.6, 0.4, 0.0]) # for pure biogas
 ```
 Create plot for the gas mixture compositions.
 ```Python
