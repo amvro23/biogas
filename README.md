@@ -1,7 +1,7 @@
 # biogas
 Thermodynamic and kinetic analysis of Biogas Dry Reforming
 
-[Install](#Install) / [Equilibrium - Usage](#Equilibrium - Usage)
+[Install](#Install) / [Usage](#Usage)
 
 # Install
 ```Python
