@@ -15,7 +15,7 @@ AR = 5
 # THERMODYNAMIC PROPERTIES
 # ------------------------------------------------------------------------------------------------
 
-# Coefficients in heat capacity equation Reid et al (1987)
+# Coefficients in heat capacity obtained from Nist Thermodynamic data https://webbook.nist.gov/
 A = np.array([-7.03029e-1,  2.499735e1,  3.0092e1, 3.3066178e1,  2.556759e1, 20.78600])
 B = np.array([ 1.084773e2,  5.518696e1,  6.832514,-1.1363417e+01,  6.09613, 2.825911e-07])
 C = np.array([-4.252157e1, -3.36913700e1,  6.793435, 1.1432816e+01,  4.054656, -1.464191e-07])
