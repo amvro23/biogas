@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 
 class GasEquilibrium:
     
-    # class variables
     inlet = inlet_species[inlet_species!=0]
     T_range = temp_range
     
