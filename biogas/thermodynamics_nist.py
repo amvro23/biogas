@@ -1,86 +1,194 @@
 import numpy as np
+from biogas_eq.data_nist import (CH4, CO2, H2O, H2, CO, temp_range, C_,
+                              a_jk, a_jk_inlet, inlet_species, 
+                              atoms_coeffs, atoms_number,
+                              HF298, A, B, C, D, E, F, G, H)
+from biogas_eq.thermodynamics_nist import std_hr, std_sr, std_gibbs
+from scipy.optimize import fmin_slsqp
+import matplotlib.pyplot as plt
 
-def std_hr(T, hf298, a, b, c, d, e, f, g, h):
-    """
-    Returns the standard enthalpy of species in kJ/mol.
-    Parameters
-    ----------
-    T : float or int
-        Temperature in K.
-    a : 1d array, float or int
-        Contains Nist coefficient of the species.
-    b : 1d array, float or int
-        Contains Nist coefficient of the species.
-    c : 1d array, float or int
-        Contains Nist coefficient of the species.
-    d : 1d array, float or int
-        Contains Nist coefficient of the species.
-    e : 1d array, float or int
-        Contains Nist coefficient of the species.
-    f : 1d array, float or int
-        Contains Nist coefficient of the species.
-    g : 1d array, float or int
-        Contains Nist coefficient of the species.
-    h : 1d array, float or int
-        Contains Nist coefficient of the species.
-    Returns
-    -------
-    1d array, float or int
-        Contains standard enthalpy of species at T in kJ/mol.
-    """
-    T = T/1000
+class GasEquilibrium:
     
-    return np.array(hf298) + np.array(a)*(T) + np.array(b)/2*(T**2)\
-        + np.array(c)/3*(T**3) + np.array(d)/4*(T**4) - np.array(e)/(T)\
-        + 1*np.array(f) + 0*np.array(g) - 1*np.array(h)
-
-
-def std_sr(T, a, b, c, d, e, f, g):
-    """
-    Returns the standard entropy of species in J/mol/K.
-    Parameters
-    ----------
-    T : float or int
-        Temperature in K.
-    a : 1d array, float or int
-        Contains Nist coefficient of the species.
-    b : 1d array, float or int
-        Contains Nist coefficient of the species.
-    c : 1d array, float or int
-        Contains Nist coefficient of the species.
-    d : 1d array, float or int
-        Contains Nist coefficient of the species.
-    e : 1d array, float or int
-        Contains Nist coefficient of the species.
-    f : 1d array, float or int
-        Contains Nist coefficient of the species.
-    g : 1d array, float or int
-        Contains Nist coefficient of the species.
-    Returns
-    -------
-    1d array, float or int
-        Contains standard entropy of species at T in J/mol/K.
-    """
-    T = T/1000
+    # class variables
+    inlet = inlet_species[inlet_species!=0]
+    T_range = temp_range
     
-    return np.array(a)*np.log(T) + np.array(b)*(T)\
-        + np.array(c)/2*(T**2) + np.array(d)/3*(T**3) - np.array(e)/(2*T**2)\
-        + 0*f + 1*g
+    def __init__(self, T = 500, P = 1, P0 = 1, R = 8.314e-3):
+        self.T = T
+        self.P = P
+        self.P0 = P0
+        self.R = R
+           
+    def gibbs_min(self, nj): 
+        hr = std_hr(self.T, HF298, A, B, C, D, E, F, G, H)
+        sr = std_sr(self.T, A, B, C, D, E, F, G)
+        gr = std_gibbs(self.T, hr, sr)
+        nj = np.array(nj)
+        gj = gr + self.R*self.T*np.log(nj / np.sum(nj) * self.P / self.P0)
+        return nj.dot(gj)   
 
-def std_gibbs(T, standard_hr, standard_sr):
-    """
-    Returns the gibbs energy of reaction in kJ/mol.
-    Parameters
-    ----------
-    T : float or int
-        Temperature in K.
-    standard_hr : float, int, or 1d array
-        Contains heat of reaction at T in kJ/kmol.
-    standard_hr : float, int, or 1d array
-        Contains entropy of reaction at T in kJ/mol/K.
-    Returns
-    -------
-    float, int, or 1d array
-        Contains gibbs energy of reaction at T in kJ/mol.
-    """
-    return (np.array(standard_hr) - T*np.array(standard_sr)/1000)
+    def ec1(self, nj):
+        nj = np.array(nj)
+        '''conservation of atoms constraint - equality constraint'''
+        return a_jk.T.dot(nj) - a_jk_inlet.T.dot(self.inlet)
+    
+    def ic1(self, nj):
+        nj = np.array(nj)
+        '''inequality constraint all n>=0'''
+        return nj
+    
+    @property
+    def min_fun(self):
+        n0 = np.random.rand(len(inlet_species))  # initial guesses
+        sol = fmin_slsqp(self.gibbs_min, n0, f_eqcons=self.ec1, f_ieqcons=self.ic1)
+        yj = sol/np.sum(sol)
+        return yj
+
+    def multiple_temperatures(self, temps):
+        return np.array([self.min_fun for self.T in temps]).T
+
+    @property
+    def conversions(self):
+        yj = self.multiple_temperatures(self.T_range)
+        Xch4 = ((inlet_species[CH4] - yj[CH4])/inlet_species[CH4])*100
+        Xco2 = ((inlet_species[CO2] - yj[CO2])/inlet_species[CO2])*100    
+        return {'Xch4': Xch4, 'Xco2': Xco2}
+    
+    @property
+    def yields(self):
+        yj = self.multiple_temperatures(self.T_range)
+        Yh2 = ((yj[H2])/(2*inlet_species[CH4]))*100
+        Yco = ((yj[CO])/(inlet_species[CH4] + inlet_species[CO2]))*100 
+        return {'Yh2': Yh2, 'Yco': Yco}   
+    
+    @property
+    def ratio_h2_co(self):
+        yj = self.multiple_temperatures(self.T_range)
+        H2_CO_ratio = yj[H2]/yj[CO]     
+        return {'H2/CO': H2_CO_ratio}
+    
+    @property
+    def plot_conversions_yields(self):
+        fig, ax = plt.subplots(figsize = (6,4), dpi = 200)
+        ax.plot(self.T_range - 273.15, self.conversions['Xch4'], label = 'CH$_4$')
+        ax.plot(self.T_range - 273.15, self.conversions['Xco2'], label = 'CO$_2$')
+        ax.plot(self.T_range - 273.15, self.yields['Yh2'], label = 'H$_2$')
+        ax.plot(self.T_range - 273.15, self.yields['Yco'], label = 'CO')
+        ax.set_title('Equilibrium Conversions/Yields', fontsize=10, fontweight='bold')
+        ax.set_ylabel('[%]', fontsize=12, fontweight='bold')
+        ax.set_xlabel('Temperature $^o$C', fontsize=12, fontweight='bold')
+        ax.grid(ls="-", alpha = 0.2)
+        ax.legend()
+        ax_b = ax.twinx()
+        ax_b.plot(self.T_range-273.15, self.ratio_h2_co['H2/CO'], "k:", label = 'H$_2$/CO', lw = 1)
+        ax_b.legend(loc = "lower right")
+        fig.show()
+     
+    @property
+    def plot_molar_ratio(self):
+        yj = self.multiple_temperatures(self.T_range)
+        fig, ax = plt.subplots(figsize = (6,4), dpi = 200)
+        ax.plot(self.T_range - 273.15, yj[CH4], label = 'CH$_4$')
+        ax.plot(self.T_range - 273.15, yj[CO2], label = 'CO$_2$')
+        ax.plot(self.T_range - 273.15, yj[H2O], label = 'H$_2$O')
+        ax.plot(self.T_range - 273.15, yj[H2], label = 'H$_2$')
+        ax.plot(self.T_range - 273.15, yj[CO], label = 'CO')
+        ax.set_title('Equilibrium Compositions', fontsize=10, fontweight='bold')
+        ax.set_ylabel('molar ratio', fontsize=12, fontweight='bold')
+        ax.set_xlabel('Temperature $^o$C', fontsize=12, fontweight='bold')
+        ax.grid(ls="-", alpha = 0.2)
+        ax.legend()
+        fig.show()
+            
+class CarbonEquilibrium(GasEquilibrium):
+    
+    dGf_carbon = 0
+    a_jk_carbon = np.vstack([a_jk, atoms_coeffs(atoms_number, [C_], [1])])
+    inlet_species_carbon = np.append([inlet_species], 0.0)
+
+    def _init(self, T, P, P0, R):
+        super().__init__(T, P, P0, R)
+    
+    def gibbs_min_carbon(self, n):
+        hr = std_hr(self.T, HF298, A, B, C, D, E, F, G, H)
+        sr = std_sr(self.T, A, B, C, D, E, F, G)
+        gr = std_gibbs(self.T, hr, sr)
+        n = np.array(n)
+        nj = n[:-1] # moles of gas
+        nc = n[-1]  # moles of carbon
+        gj = gr + self.R*self.T*np.log(nj / np.sum(nj) * self.P / self.P0)
+        return nj.dot(gj) + nc*self.dGf_carbon
+    
+    def ec2(self, nj):
+        nj = np.array(nj)
+        '''conservation of atoms constraint - equality constraint'''
+        return self.a_jk_carbon.T.dot(nj) - a_jk_inlet.T.dot(self.inlet)
+    
+    def ic2(self, nj):
+        nj = np.array(nj)
+        '''inequality constraint all n>=0'''
+        return nj 
+
+    @property
+    def min_fun_carbon(self):
+        n0 = np.random.rand(len(self.inlet_species_carbon))  # initial guesses
+        sol = fmin_slsqp(self.gibbs_min_carbon, n0, f_eqcons=self.ec2, f_ieqcons=self.ic2)
+        yj = sol/np.sum(sol)
+        return yj
+
+    def multiple_temperatures_carbon(self, temps):
+        return np.array([self.min_fun_carbon for self.T in temps]).T
+
+    @property
+    def conversions_carbon(self):
+        yj = self.multiple_temperatures_carbon(self.T_range)
+        Xch4 = ((inlet_species[CH4] - yj[CH4])/inlet_species[CH4])*100
+        Xco2 = ((inlet_species[CO2] - yj[CO2])/inlet_species[CO2])*100    
+        return {'Xch4': Xch4, 'Xco2': Xco2}
+    
+    @property
+    def yields_carbon(self):
+        yj = self.multiple_temperatures_carbon(self.T_range)
+        Yh2 = ((yj[H2])/(2*inlet_species[CH4]))*100
+        Yco = ((yj[CO])/(inlet_species[CH4] + inlet_species[CO2]))*100 
+        return {'Yh2': Yh2, 'Yco': Yco}   
+    
+    @property
+    def ratio_h2_co_carbon(self):
+        yj = self.multiple_temperatures_carbon(self.T_range)
+        H2_CO_ratio = yj[H2]/yj[CO]     
+        return {'H2/CO': H2_CO_ratio}
+    
+    @property
+    def plot_conversions_yields_carbon(self):
+        fig, ax = plt.subplots(figsize = (6,4), dpi = 200)
+        ax.plot(self.T_range - 273.15, self.conversions_carbon['Xch4'], label = 'CH$_4$')
+        ax.plot(self.T_range - 273.15, self.conversions_carbon['Xco2'], label = 'CO$_2$')
+        ax.plot(self.T_range - 273.15, self.yields_carbon['Yh2'], label = 'H$_2$')
+        ax.plot(self.T_range - 273.15, self.yields_carbon['Yco'], label = 'CO')
+        ax.set_title('Equilibrium Conversions/Yields', fontsize=10, fontweight='bold')
+        ax.set_ylabel('[%]', fontsize=12, fontweight='bold')
+        ax.set_xlabel('Temperature $^o$C', fontsize=12, fontweight='bold')
+        ax.grid(ls="-", alpha = 0.2)
+        ax.legend()
+        ax_b = ax.twinx()
+        ax_b.plot(self.T_range-273.15, self.ratio_h2_co_carbon['H2/CO'], "k:", label = 'H$_2$/CO', lw = 1)
+        ax_b.legend(loc = "lower right")
+        fig.show()
+     
+    @property
+    def plot_molar_ratio_carbon(self):
+        yj = self.multiple_temperatures_carbon(self.T_range)
+        fig, ax = plt.subplots(figsize = (6,4), dpi = 200)
+        ax.plot(self.T_range - 273.15, yj[CH4], label = 'CH$_4$')
+        ax.plot(self.T_range - 273.15, yj[CO2], label = 'CO$_2$')
+        ax.plot(self.T_range - 273.15, yj[H2O], label = 'H$_2$O')
+        ax.plot(self.T_range - 273.15, yj[H2], label = 'H$_2$')
+        ax.plot(self.T_range - 273.15, yj[CO], label = 'CO')
+        ax.plot(self.T_range - 273.15, yj[-1], label = 'C')
+        ax.set_title('Equilibrium Compositions', fontsize=10, fontweight='bold')
+        ax.set_ylabel('molar ratio', fontsize=12, fontweight='bold')
+        ax.set_xlabel('Temperature $^o$C', fontsize=12, fontweight='bold')
+        ax.grid(ls="-", alpha = 0.2)
+        ax.legend()
+        fig.show()
