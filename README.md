@@ -23,7 +23,7 @@ Define the temperature range for equilibrium analysis (default is 573.15K to 121
 ```Python
 mix.T_range = np.linspace(573.15, 1213.15)
 ```
-Define the inlet ratio of biogas mixture which can be diluted or not (default value is 50% biogas & 50% argon inert gas).
+Define the inlet ratio of biogas mixture [CH4, CO2, inert] which can be diluted or not (default value is 50% biogas & 50% argon inert gas).
 ```Python
 mix.inlet = np.array([0.3, 0.2, 0.5]) # for diluted mixture
 ```
