@@ -91,6 +91,31 @@ Then you have to set inlet conditions (50% biogas & 50% inert gas). Default valu
 ```Python
 test_reac.set_inlet()
 ```
+After that, you have to solve the system of differential equations,
+```Python
+test_reac.solve()
+```
+and save the results obtained in a variable.
+```Python
+profiles = test_reac.get_dataframe()
+```
+From the created profiles your can obtain the plots of molar rates and temperature profiles
+```Python
+fig, ax = plt.subplots(figsize=[6, 4], dpi=100, sharex=True)
+ax.plot(profiles.index, profiles["Fch4"], color="darkgreen", label="$CH_4$")
+ax.plot(profiles.index, profiles["Fco2"], color="black", label="$CO_2$")
+ax.plot(profiles.index, profiles["Fh2"], color="red", label="$H_2$")
+ax.plot(profiles.index, profiles["Fco"], color="orange", label="$CO$")
+ax.set_ylabel("$F$ [mol/s]")
+ax.set_xlabel("$z$ [m]")
+ax.legend()
+ax.grid(ls=":")
+fig.tight_layout()
+plt.show()
+```
+![773_mr](https://user-images.githubusercontent.com/91277572/211167335-dcc1993a-fccf-423d-9de2-f765b202c21e.png)
+
+
 
 # Contact
 amvro23@gmail.com
