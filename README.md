@@ -179,9 +179,9 @@ The kinetic model and effectiveness factors was reproduced based on the Charisio
 # References
 [Charisiou, N. D., Siakavelas, G., Papageridis, K. N., Baklavaridis, A., Tzounis, L., Avraam, D. G., & Goula, M. A. (2016). Syngas production via the biogas dry reforming reaction over nickel supported on modified with CeO2 and/or La2O3 alumina catalysts. Journal of Natural Gas Science and Engineering, 31, 164-183.](https://doi.org/10.1016/j.jngse.2016.02.021)
 
-[Leite, B., Costa, A. O. S., Costa, E. F., 2023. Multi-objective optimization of adiabatic styrene reactors using Generalized Differential Evolution 3 (GDE3). Chem. Eng. Sci., Volume 265, Article 118196](https://doi.org/10.1016/j.ces.2022.118196)
+[Leite, B., Costa, A. O. S., Costa, E. F., 2023. Multi-objective optimization of adiabatic styrene reactors using Generalized Differential Evolution 3 (GDE3). Chem. Eng. Sci., Volume 265, Article 118196.](https://doi.org/10.1016/j.ces.2022.118196)
 
-[Leite, B., Costa, A. O. S. & Costa Junior, E. F., 2021. Simulation and optimization of axial-flow and radial-flow reactors for dehydrogenation of ethylbenzene into styrene based on a heterogeneous kinetic model. Chem. Eng. Sci., Volume 244, Article 116805](https://doi.org/10.1016/j.ces.2021.116805)
+[Leite, B., Costa, A. O. S. & Costa Junior, E. F., 2021. Simulation and optimization of axial-flow and radial-flow reactors for dehydrogenation of ethylbenzene into styrene based on a heterogeneous kinetic model. Chem. Eng. Sci., Volume 244, Article 116805.](https://doi.org/10.1016/j.ces.2021.116805)
 
 # Contact
 amvro23@gmail.com
