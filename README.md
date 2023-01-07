@@ -1,7 +1,7 @@
 # biogas
 Thermodynamic and kinetic analysis of Biogas Dry Reforming
 
-[Install](#Install) / [Usage](#Usage) / [Equilibrium](#Equilibrium) / [Contact](#Contact)
+[Install](#Install) / [Usage](#Usage) / [Equilibrium](#Equilibrium) / [Reactor](#Reactor) / [Contact](#Contact)
 
 # Install
 ```Python
@@ -72,6 +72,8 @@ mix.ratio_h2_co_carbon
 mix.multiple_temperatures(mix.T_range) # molar compositions for gas mixture
 mix.multiple_temperatures_carbon(mix.T_range) # molar compositions for gas mixture including carbon
 ```
+# Reactor
+
 
 # Contact
 amvro23@gmail.com
