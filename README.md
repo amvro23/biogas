@@ -78,6 +78,12 @@ Create an object for the reactor.
 ```Python
 test_reac = SingleBed()
 ```
+Next you have to set inlet conditions.
+```Python
+test_reac.set_inlet(T=773)
+```
+
+
 
 # Contact
 amvro23@gmail.com
