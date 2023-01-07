@@ -1,7 +1,7 @@
 # biogas
 Thermodynamic and kinetic analysis of Biogas Dry Reforming
 
-[Install](#Install) / [Usage](#Usage) / [Contact](#Contact)
+[Install](#Install) / [Usage](#Usage) / [Equilibrium](#Equilibrium) / [Contact](#Contact)
 
 # Install
 ```Python
@@ -11,6 +11,8 @@ pip install -e git+https://github.com/amvro23/biogas/#egg=biogas
 Note: It might be useful to write "git+https://github.com/amvro23/biogas/#egg=biogas" if installing directly from a Python interpreter as # can be interpreted as a comment.
 
 # Usage
+
+# Equilibrium
 
 ```Python
 from biogas.gibbs_min import CarbonEquilibrium
