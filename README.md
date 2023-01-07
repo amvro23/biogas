@@ -199,7 +199,7 @@ plt.show()
 ![mf](https://user-images.githubusercontent.com/91277572/211168849-c742187d-93e0-421c-ab06-1c5ae15cf8ed.png)
 ![temp](https://user-images.githubusercontent.com/91277572/211168846-f7c818e5-6e09-4c8c-be4d-772787affac2.png)
 
-The user can also have access to the values of conversions of yields (e.g., at T = 950K)
+The user can also have access to the values of conversions abd yields (e.g., at T = 950K)
 
 ```Python
 conversions = test_reac.conversion
