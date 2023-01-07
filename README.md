@@ -118,7 +118,7 @@ plt.show()
 ![773_mr](https://user-images.githubusercontent.com/91277572/211167335-dcc1993a-fccf-423d-9de2-f765b202c21e.png)
 ![773T_mr](https://user-images.githubusercontent.com/91277572/211167369-d9ce6a15-929e-4e0c-8a56-03c507dfa6e5.png)
 
-or for the axial bed reactor at T=950K:
+or for the axial bed reactor at T=950K,
 
 ```Python
 test_reac.add_axial_bed(5.1e-3)
@@ -140,7 +140,7 @@ plt.show()
 ```
 ![950T_mr](https://user-images.githubusercontent.com/91277572/211167584-4a1a3396-0e7a-491b-adb7-7feacb7bd531.png)
 
-or when applying cooling conditions with default values:
+or for the cooloer using the default values.
 
 ```Python
 test_reac.add_axial_bed(5.1e-3)
