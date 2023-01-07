@@ -117,7 +117,45 @@ plt.show()
 ![773_mr](https://user-images.githubusercontent.com/91277572/211167335-dcc1993a-fccf-423d-9de2-f765b202c21e.png)
 ![773T_mr](https://user-images.githubusercontent.com/91277572/211167369-d9ce6a15-929e-4e0c-8a56-03c507dfa6e5.png)
 
+or for the axial bed reactor at T=950:
+
+```Python
+test_reac.add_axial_bed(5.1e-3)
+test_reac.set_inlet(T=950)
+test_reac.solve()
+profiles = test_reac.get_dataframe()
+
+fig, ax = plt.subplots(figsize=[6, 4], dpi=100, sharex=True)
+ax.plot(profiles.index, profiles["Fch4"], color="darkgreen", label="$CH_4$")
+ax.plot(profiles.index, profiles["Fco2"], color="black", label="$CO_2$")
+ax.plot(profiles.index, profiles["Fh2"], color="red", label="$H_2$")
+ax.plot(profiles.index, profiles["Fco"], color="orange", label="$CO$")
+ax.set_ylabel("$F$ [mol/s]")
+ax.set_xlabel("$z$ [m]")
+ax.legend()
+ax.grid(ls=":")
+fig.tight_layout()
+plt.show()
+```
+![950T_mr](https://user-images.githubusercontent.com/91277572/211167584-4a1a3396-0e7a-491b-adb7-7feacb7bd531.png)
+
 or for the cooler at default values:
+
+```Python
+test_reac.add_axial_bed(5.1e-3)
+test_reac.set_inlet(T=950)
+test_reac.solve()
+profiles = test_reac.get_dataframe()
+
+fig, ax = plt.subplots(figsize=[6, 4], dpi=100, sharex=True)
+ax.plot(profiles.index, profiles["T"], color="purple", label="$T$")
+ax.set_ylabel("$T$ [K]")
+ax.set_xlabel("$z$ [m]")
+ax.legend()
+ax.grid(ls=":")
+fig.tight_layout()
+plt.show()
+```
 
 ![773T_mr](https://user-images.githubusercontent.com/91277572/211167473-ed98254c-d83a-4060-bd2d-c2b15a2bbd46.png)
 
