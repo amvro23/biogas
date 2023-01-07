@@ -143,7 +143,7 @@ or for the cooler at default values:
 
 ```Python
 test_reac.add_axial_bed(5.1e-3)
-test_reac.set_inlet(T=950)
+test_reac.set_inlet()
 test_reac.solve()
 profiles = test_reac.get_dataframe()
 
