@@ -13,6 +13,7 @@ Note: It might be useful to write "git+https://github.com/amvro23/biogas/#egg=bi
 # Usage
 ```Python
 import matplotlib.pyplot as plt
+import numpy as np
 from biogas.reactor import SingleBed
 from biogas.gibbs_min import CarbonEquilibrium
 import warnings
