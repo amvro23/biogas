@@ -118,6 +118,7 @@ plt.show()
 ![773T_mr](https://user-images.githubusercontent.com/91277572/211167369-d9ce6a15-929e-4e0c-8a56-03c507dfa6e5.png)
 
 or for the cooler at default values:
+
 ![773T_mr](https://user-images.githubusercontent.com/91277572/211167473-ed98254c-d83a-4060-bd2d-c2b15a2bbd46.png)
 
 
