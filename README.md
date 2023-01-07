@@ -37,19 +37,19 @@ or pure biogas (default value is 50% biogas & 50% argon inert gas)
 ```Python
 mix.inlet = np.array([0.6, 0.4, 0.0]) # for pure biogas
 ```
-Create plot for the gas mixture compositions (this for diluted mixture).
+You can create plot for the gas mixture compositions (this for diluted mixture).
 ```Python
 mix.plot_molar_ratio
 ```
 ![molar_ratio_gas](https://user-images.githubusercontent.com/91277572/208469749-f7682117-3dae-471d-bbfe-5d32b41e7533.png)
 
-Create plot for the gas mixture conversions, yields and ratios.
+You can also create a plot for the gas mixture conversions, yields and ratios.
 ```Python
 mix.plot_conversions_yields
 ```
 ![conversions_yields_gas](https://user-images.githubusercontent.com/91277572/208469178-6e58a363-3ff3-46bc-80a9-f09ca3b23ffe.png)
 
-Create plot for the gas mixture compositions considering carbon.
+The model allows you to create plots for the gas mixture compositions considering carbon.
 ```Python
 mix.plot_molar_ratio_carbon
 ```
