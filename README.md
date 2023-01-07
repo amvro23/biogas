@@ -61,7 +61,7 @@ mix.plot_molar_ratio_carbon
 ```
 ![conversions_yields_carbon](https://user-images.githubusercontent.com/91277572/208470377-78c867fa-525a-4b5c-ad69-e00248f1a382.png)
 
-You can also obtain numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon) by using the following:
+You can also obtain numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon) by using the following in order to create your own plots:
 ```Python
 mix.conversions
 mix.conversions_carbon
