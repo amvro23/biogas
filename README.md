@@ -174,7 +174,7 @@ Finally, you can get an excell file of the molar rates, temperature, and pressur
 ```Python
 test_reac.to_excel("SingleBed")
 ```
-The kinetic model and effectiveness factors was reproduced based on the Charisiou et al. work, while and other equations and parameters used herein were adopted from the Leite et al. articles.
+The kinetic model and effectiveness factors were reproduced based on the Charisiou et al. work, while other equations and parameters used herein were adopted from the Leite et al. articles.
 
 # References
 [Charisiou, N. D., Siakavelas, G., Papageridis, K. N., Baklavaridis, A., Tzounis, L., Avraam, D. G., & Goula, M. A. (2016). Syngas production via the biogas dry reforming reaction over nickel supported on modified with CeO2 and/or La2O3 alumina catalysts. Journal of Natural Gas Science and Engineering, 31, 164-183.](https://doi.org/10.1016/j.jngse.2016.02.021)
