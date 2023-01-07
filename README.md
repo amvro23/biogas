@@ -73,7 +73,7 @@ mix.multiple_temperatures(mix.T_range) # molar compositions for gas mixture
 mix.multiple_temperatures_carbon(mix.T_range) # molar compositions for gas mixture including carbon
 ```
 # Reactor
-Create an object for the gas the reactor.
+Create an object for the reactor.
 
 ```Python
 test_reac = SingleBed()
