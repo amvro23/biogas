@@ -83,9 +83,10 @@ You can either choose a single axial bed reactor,
 ```Python
 test_reac.add_axial_bed(5.1e-3)
 ```
-or you can take advantage of the flexibility of the package and incorporate an external cooling fluid of variable temperature.
+or you can take advantage of the flexibility of the package and incorporate an external cooling fluid of variable temperature. Default value of cooling temperature is the ambient temperature (T=298K)
 ```Python
 test_reac.add_cooler(5.1e-3)
+test_reac.beds[1].Tcool = 298
 ```
 Then you have to set inlet conditions (50% biogas & 50% inert gas). Default values are (Fch4=30, Fco2=20, Fh2o=1e-2, Fh2=1e-2, Fco=0.0, Far=50, T=773, P=1.0) with molar rates (Fi) in [ml/min], temperature (T) in K, and pressure (P) in bar. Note that small amounts of hydrogen and water should be inserted too in order to avoid division with zero and maintain numerical stability.
 ```Python
