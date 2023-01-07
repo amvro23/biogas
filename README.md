@@ -77,7 +77,7 @@ First you have to create an object for the test reactor.
 ```Python
 test_reac = SingleBed()
 ```
-Next you have to add the single bed reactor. You can either choose a single axial bed reactor,
+Next you have to add the single bed reactor with one required parameter (i.e., length of the reactor). You can either choose a single axial bed reactor,
 ```Python
 test_reac.add_axial_bed(5.1e-3)
 ```
