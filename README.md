@@ -158,7 +158,7 @@ plt.show()
 ```
 ![773T_mr](https://user-images.githubusercontent.com/91277572/211167473-ed98254c-d83a-4060-bd2d-c2b15a2bbd46.png)
 
-The effectiveness factors can also be adjusted accordingly
+The effectiveness factors can also be adjusted accordingly.
 ```Python
 test_reac = SingleBed()
 
