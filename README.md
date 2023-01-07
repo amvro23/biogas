@@ -13,7 +13,7 @@ Note: It might be useful to write "git+https://github.com/amvro23/biogas/#egg=bi
 # Usage
 
 ```Python
-from gibbs_min import CarbonEquilibrium
+from biogas.gibbs_min import CarbonEquilibrium
 ```
 Create an object for the gas mixture of biogas (default values are T = 500K, P = 1atm, P0 = 1atm).
 ```
