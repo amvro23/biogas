@@ -49,13 +49,13 @@ mix.plot_conversions_yields
 ```
 ![conversions_yields_gas](https://user-images.githubusercontent.com/91277572/208469178-6e58a363-3ff3-46bc-80a9-f09ca3b23ffe.png)
 
-The model allows you to create plots for the gas mixture compositions considering carbon.
+The package allows you to create plots for the gas mixture compositions considering carbon.
 ```Python
 mix.plot_molar_ratio_carbon
 ```
 ![molar_ratio_carbon](https://user-images.githubusercontent.com/91277572/208470540-eba165f3-4fda-429d-845c-653a2d05f213.png)
 
-Create plot for the gas mixture conversions, yields and ratios considering carbon.
+Similarly, you can create a plot for the gas mixture conversions, yields and ratios considering carbon.
 ```Python
 mix.plot_molar_ratio_carbon
 ```
