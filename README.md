@@ -156,8 +156,20 @@ ax.grid(ls=":")
 fig.tight_layout()
 plt.show()
 ```
-
 ![773T_mr](https://user-images.githubusercontent.com/91277572/211167473-ed98254c-d83a-4060-bd2d-c2b15a2bbd46.png)
+
+The user can also have access to the values of conversions of yields (e.g., at T = 950K)
+```Python
+conversions = test_reac.conversion
+conversions
+```
+```
+Out: 
+{'Xch4': 55.10987440137124,
+ 'Xco2': 88.3423110736619,
+ 'Xh2': 53.23404124416936,
+ 'Xco': 68.40284907028743}
+```
 
 
 
