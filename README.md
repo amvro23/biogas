@@ -19,10 +19,6 @@ import warnings
 warnings.filterwarnings("ignore")
 ```
 # Equilibrium
-
-```Python
-from biogas.gibbs_min import CarbonEquilibrium
-```
 Create an object for the gas mixture of biogas (default values are T = 500K, P = 1atm, P0 = 1atm).
 ```
 mix = CarbonEquilibrium()
