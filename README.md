@@ -11,7 +11,13 @@ pip install -e git+https://github.com/amvro23/biogas/#egg=biogas
 Note: It might be useful to write "git+https://github.com/amvro23/biogas/#egg=biogas" if installing directly from a Python interpreter as # can be interpreted as a comment.
 
 # Usage
-
+```Python
+import matplotlib.pyplot as plt
+from biogas.reactor import SingleBed
+from biogas.gibbs_min import CarbonEquilibrium
+import warnings
+warnings.filterwarnings("ignore")
+```
 # Equilibrium
 
 ```Python
