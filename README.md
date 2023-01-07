@@ -73,17 +73,22 @@ mix.multiple_temperatures(mix.T_range) # molar compositions for gas mixture
 mix.multiple_temperatures_carbon(mix.T_range) # molar compositions for gas mixture including carbon
 ```
 # Reactor
-Create an object for the reactor.
-
+First you have to create an object for the reactor.
 ```Python
 test_reac = SingleBed()
 ```
-Next you have to set inlet conditions.
+Next you have to add the reactor. You can either choose a single axial bed reactor,
+```Python
+test_reac.add_axial_bed(5.1e-3)
+```
+or you take advantage of the flexibility of the package and incorporate an external cooling fluid of variable temperature.
+```Python
+test_reac.add_cooler(5.1e-3)
+```
+Then you have to set inlet conditions.
 ```Python
 test_reac.set_inlet(T=773)
 ```
-
-
 
 # Contact
 amvro23@gmail.com
