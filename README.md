@@ -73,21 +73,21 @@ mix.multiple_temperatures(mix.T_range) # molar compositions for gas mixture
 mix.multiple_temperatures_carbon(mix.T_range) # molar compositions for gas mixture including carbon
 ```
 # Reactor
-First you have to create an object for the reactor.
+First you have to create an object for the test reactor.
 ```Python
 test_reac = SingleBed()
 ```
-Next you have to add the reactor. You can either choose a single axial bed reactor,
+Next you have to add the single bed reactor. You can either choose a single axial bed reactor,
 ```Python
 test_reac.add_axial_bed(5.1e-3)
 ```
-or you take advantage of the flexibility of the package and incorporate an external cooling fluid of variable temperature.
+or you can take advantage of the flexibility of the package and incorporate an external cooling fluid of variable temperature.
 ```Python
 test_reac.add_cooler(5.1e-3)
 ```
-Then you have to set inlet conditions.
+Then you have to set inlet conditions (50% biogas & 50% inert gas). Default values are (Fch4=30, Fco2=20, Fh2o=1e-2, Fh2=1e-2, Fco=0.0, Far=50, T=773, P=1.0) with molar rates (Fi) in [ml/min], temperature (T) in K, and pressure (P) in bar. Note that small amounts of hydrogen and water should be inserted too in order to avoid division with zero and maintain numerical stability.
 ```Python
-test_reac.set_inlet(T=773)
+test_reac.set_inlet()
 ```
 
 # Contact
