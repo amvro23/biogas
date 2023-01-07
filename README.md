@@ -158,11 +158,49 @@ plt.show()
 ```
 ![773T_mr](https://user-images.githubusercontent.com/91277572/211167473-ed98254c-d83a-4060-bd2d-c2b15a2bbd46.png)
 
+The effectiveness factors can also be adjusted accordingly
+```Python
+test_reac = SingleBed()
+
+test_reac.add_axial_bed(5.1e-3)
+test_reac.set_inlet(T=1000)
+
+test_reac.beds[1].eff1 = 0
+test_reac.solve()
+profiles = test_reac.get_dataframe()
+
+
+fig, ax = plt.subplots(figsize=[6, 4], dpi=100, sharex=True)
+ax.plot(profiles.index, profiles["Fch4"], color="darkgreen", label="$CH_4$")
+ax.plot(profiles.index, profiles["Fco2"], color="black", label="$CO_2$")
+ax.plot(profiles.index, profiles["Fh2"], color="red", label="$H_2$")
+ax.plot(profiles.index, profiles["Fco"], color="orange", label="$CO$")
+ax.set_ylabel("$F$ [mol/s]")
+ax.set_xlabel("$z$ [m]")
+ax.legend()
+ax.grid(ls=":")
+fig.tight_layout()
+plt.show()
+
+fig, ax = plt.subplots(figsize=[6, 4], dpi=100, sharex=True)
+ax.plot(profiles.index, profiles["T"], color="purple", label="$T$")
+ax.set_ylabel("$T$ [K]")
+ax.set_xlabel("$z$ [m]")
+ax.legend()
+ax.grid(ls=":")
+fig.tight_layout()
+plt.show()
+```
+![temp](https://user-images.githubusercontent.com/91277572/211168846-f7c818e5-6e09-4c8c-be4d-772787affac2.png)
+![mf](https://user-images.githubusercontent.com/91277572/211168849-c742187d-93e0-421c-ab06-1c5ae15cf8ed.png)
+
 The user can also have access to the values of conversions of yields (e.g., at T = 950K)
+
 ```Python
 conversions = test_reac.conversion
 conversions
 ```
+
 ```
 Out: 
 {'Xch4': 55.10987440137124,
@@ -170,10 +208,13 @@ Out:
  'Xh2': 53.23404124416936,
  'Xco': 68.40284907028743}
 ```
+
 Finally, you can get an excell file of the molar rates, temperature, and pressure profiles to reate your own plots.
+
 ```Python
 test_reac.to_excel("SingleBed")
 ```
+
 The kinetic model and effectiveness factors were reproduced based on the Charisiou et al. work, while other equations and parameters used herein were adopted from the Leite et al. articles.
 
 # References
