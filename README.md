@@ -170,6 +170,10 @@ Out:
  'Xh2': 53.23404124416936,
  'Xco': 68.40284907028743}
 ```
+Finally, you can get an excell file of the molar rates, temperature, and pressure profiles to reate your own plots.
+```Python
+test_reac.to_excel("SingleBed")
+```
 
 # Contact
 amvro23@gmail.com
