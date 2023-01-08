@@ -37,13 +37,13 @@ or pure biogas (default value is 50% biogas & 50% argon inert gas).
 ```Python
 mix.set_inlet(ych4=0.6, yco2=0.4, yar=0.0) # for pure biogas
 ```
-You can create a plot regarding the molar compositions of the diluted gas mixture.
+You can create a plot regarding the desired gas mixture (e.g., diluted mixture).
 ```Python
 mix.plot_molar_ratio()
 ```
 ![molar_ratio_gas](https://user-images.githubusercontent.com/91277572/208469749-f7682117-3dae-471d-bbfe-5d32b41e7533.png)
 
-You can also create a plot for the gas mixture conversions, yields and ratios.
+You can also create a plot for the gas mixture conversions, yields and ratios (e.g., diluted mixture).
 ```Python
 mix.plot_conversions_yields()
 ```
