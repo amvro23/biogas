@@ -35,7 +35,7 @@ mix.set_inlet(ych4=0.3, yco2=0.2, yar=0.5) # for diluted mixture
 
 or pure biogas (default value is 50% biogas & 50% argon inert gas)
 ```Python
-mix.set_inlet(ych4=0.5, yco2=0.5, yar=0.0) # for pure biogas
+mix.set_inlet(ych4=0.6, yco2=0.4, yar=0.0) # for pure biogas
 ```
 You can create plot for the gas mixture compositions (the following represents the diluted mixture).
 ```Python
