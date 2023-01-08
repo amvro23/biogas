@@ -112,8 +112,7 @@ class CatalystBed(object):
         keys = ['Fch4', 'Fco2', 'Fh2o', 'Fh2', 'Fco', 'Far', 'T', 'P']
         self.inlet = dict(zip(keys, params))
         self._inlet_values = params
-        self._keys = keys
-        self._inlet_values          
+        self._keys = keys        
 
 
     def solve(self, points_eval=None, **kwargs):
