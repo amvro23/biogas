@@ -49,15 +49,20 @@ mix.plot_conversions_yields()
 ```
 ![conversions_yields_gas](https://user-images.githubusercontent.com/91277572/208469178-6e58a363-3ff3-46bc-80a9-f09ca3b23ffe.png)
 
-The package allows you to create plots for the gas mixture compositions considering carbon.
+The package allows you to consider carbon during the thermodynamic analysis.
+First, you have to add carbon.
 ```Python
-mix.plot_molar_ratio_carbon
+mix.add_carbon()
+```
+Then, by applying that same logic you can have access to molar compositions plots,
+```Python
+mix.plot_molar_ratio_carbon()
 ```
 ![molar_ratio_carbon](https://user-images.githubusercontent.com/91277572/208470540-eba165f3-4fda-429d-845c-653a2d05f213.png)
 
-Similarly, you can create a plot for the gas mixture conversions, yields and ratios considering carbon in thermodynamic analysis.
+or, you can create a plot for the gas mixture conversions, yields and ratios.
 ```Python
-mix.plot_molar_ratio_carbon
+mix.plot_molar_ratio_carbon()
 ```
 ![conversions_yields_carbon](https://user-images.githubusercontent.com/91277572/208470377-78c867fa-525a-4b5c-ad69-e00248f1a382.png)
 
