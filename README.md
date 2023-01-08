@@ -221,6 +221,18 @@ Out:
  'Xco': 68.40284907028743}
 ```
 
+The package also returns the heat consumption in MW (initial_T=781) to give an indicative overview of the εnergy requirements.
+
+```Python
+test_reac.get_heat_consumed(initial_T=781.00)
+conversions
+```
+
+```
+Out
+2.792282394738481e-07
+```
+
 Finally, you can get an excell file of the molar rates, temperature, and pressure profiles to reate your own plots.
 
 ```Python
