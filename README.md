@@ -55,7 +55,7 @@ mix.plot_molar_ratio_carbon
 ```
 ![molar_ratio_carbon](https://user-images.githubusercontent.com/91277572/208470540-eba165f3-4fda-429d-845c-653a2d05f213.png)
 
-Similarly, you can create a plot for the gas mixture conversions, yields and ratios considering carbon.
+Similarly, you can create a plot for the gas mixture conversions, yields and ratios considering carbon in thermodynamic analysis.
 ```Python
 mix.plot_molar_ratio_carbon
 ```
