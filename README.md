@@ -67,7 +67,7 @@ mix.plot_molar_ratio_carbon()
 ```
 ![eqconv](https://user-images.githubusercontent.com/91277572/211210090-1c8d4313-a6c9-493b-a703-afb751728621.png)
 
-You can also obtain a dataframe of all the obtained numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon) by using the following in order to create your own plots.
+You can also obtain a dataframe of all the obtained numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon) by using the following.
 ```Python
 mix.get_dataframe()
 mix.get_dataframe_carbon()
