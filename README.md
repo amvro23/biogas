@@ -28,24 +28,24 @@ Define the temperature range for equilibrium analysis (default is 573.15K to 121
 ```Python
 mix.T_range = np.linspace(573.15, 1213.15)
 ```
-Define the inlet ratio of biogas mixture [CH4, CO2, inert] which can be diluted,
+Define the inlet ratio of biogas mixture [CH4, CO2, inert] which can either be diluted,
 ```Python
-mix.inlet = np.array([0.3, 0.2, 0.5]) # for diluted mixture
+mix.set_inlet(ych4=0.3, yco2=0.2, yar=0.5) # for diluted mixture
 ```
 
 or pure biogas (default value is 50% biogas & 50% argon inert gas)
 ```Python
-mix.inlet = np.array([0.6, 0.4, 0.0]) # for pure biogas
+mix.set_inlet(ych4=0.5, yco2=0.5, yar=0.0) # for pure biogas
 ```
 You can create plot for the gas mixture compositions (the following represents the diluted mixture).
 ```Python
-mix.plot_molar_ratio
+mix.plot_molar_ratio()
 ```
 ![molar_ratio_gas](https://user-images.githubusercontent.com/91277572/208469749-f7682117-3dae-471d-bbfe-5d32b41e7533.png)
 
 You can also create a plot for the gas mixture conversions, yields and ratios.
 ```Python
-mix.plot_conversions_yields
+mix.plot_conversions_yields()
 ```
 ![conversions_yields_gas](https://user-images.githubusercontent.com/91277572/208469178-6e58a363-3ff3-46bc-80a9-f09ca3b23ffe.png)
 
