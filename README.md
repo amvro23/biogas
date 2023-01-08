@@ -15,7 +15,7 @@ Note: It might be useful to write "git+https://github.com/amvro23/biogas/#egg=bi
 import matplotlib.pyplot as plt
 import numpy as np
 from biogas.reactor import SingleBed
-from biogas.gibbs_min import CarbonEquilibrium
+from biogas.gibbs_min import Equilibrium
 import warnings
 warnings.filterwarnings("ignore")
 ```
