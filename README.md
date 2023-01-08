@@ -64,19 +64,19 @@ or, you can create a plot for the gas mixture conversions, yields and ratios.
 ```Python
 mix.plot_molar_ratio_carbon()
 ```
-![conversions_yields_carbon](https://user-images.githubusercontent.com/91277572/208470377-78c867fa-525a-4b5c-ad69-e00248f1a382.png)
+![eqconv](https://user-images.githubusercontent.com/91277572/211210090-1c8d4313-a6c9-493b-a703-afb751728621.png)
 
-You can also obtain numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon) by using the following in order to create your own plots:
+You can also obtain a dataframe of all the obtained numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon) by using the following in order to create your own plots.
 ```Python
-mix.conversions
-mix.conversions_carbon
-mix.yields
-mix.yields_carbon
-mix.ratio_h2_co
-mix.ratio_h2_co_carbon
-mix.multiple_temperatures(mix.T_range) # molar compositions for gas mixture
-mix.multiple_temperatures_carbon(mix.T_range) # molar compositions for gas mixture including carbon
+mix.get_dataframe
+mix.get_dataframe_carbon
 ```
+Finally, you can get the excel files with the dataframes to create your own plots or manipulate data.
+```Python
+mix.to_excel('GasEquilibrium')
+mix.to_excel_carbon('GasEquilibriumCarbon')
+```
+
 # Reactor
 First you have to create an object for the test reactor.
 ```Python
