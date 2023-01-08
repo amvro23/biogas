@@ -146,7 +146,7 @@ plt.show()
 ```
 ![950T_mr](https://user-images.githubusercontent.com/91277572/211167584-4a1a3396-0e7a-491b-adb7-7feacb7bd531.png)
 
-or for the cooloer using the default values.
+or for the cooler using the default values.
 
 ```Python
 test_reac.add_axial_bed(5.1e-3)
