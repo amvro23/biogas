@@ -33,11 +33,11 @@ Define the inlet ratio of biogas mixture which can either be diluted,
 mix.set_inlet(ych4=0.3, yco2=0.2, yar=0.5) # for diluted mixture
 ```
 
-or pure biogas (default value is 50% biogas & 50% argon inert gas)
+or pure biogas (default value is 50% biogas & 50% argon inert gas).
 ```Python
 mix.set_inlet(ych4=0.6, yco2=0.4, yar=0.0) # for pure biogas
 ```
-You can create plot for the gas mixture compositions (the following represents the diluted mixture).
+You can create a plot regarding the molar compositions of the diluted gas mixture.
 ```Python
 mix.plot_molar_ratio()
 ```
@@ -54,7 +54,7 @@ First, you have to add carbon.
 ```Python
 mix.add_carbon()
 ```
-Then, by applying that same logic you can have access to molar compositions plots,
+Then, by applying that same logic you can have access to molar composition plots,
 ```Python
 mix.plot_molar_ratio_carbon()
 ```
@@ -71,7 +71,7 @@ You can also obtain a dataframe of all the obtained numerical values of conversi
 mix.get_dataframe
 mix.get_dataframe_carbon
 ```
-Finally, you can get the excel files with the dataframes to create your own plots or manipulate data.
+Finally, you can get the excel files with the dataframes to create your own plots or manipulate data, if necessary.
 ```Python
 mix.to_excel('GasEquilibrium')
 mix.to_excel_carbon('GasEquilibriumCarbon')
