@@ -68,8 +68,8 @@ mix.plot_molar_ratio_carbon()
 
 You can also obtain a dataframe of all the obtained numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon) by using the following in order to create your own plots.
 ```Python
-mix.get_dataframe
-mix.get_dataframe_carbon
+mix.get_dataframe()
+mix.get_dataframe_carbon()
 ```
 Finally, you can get the excel files with the dataframes to create your own plots or manipulate data, if necessary.
 ```Python
