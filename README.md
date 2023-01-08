@@ -221,7 +221,7 @@ Out:
  'Xco': 68.40284907028743}
 ```
 
-The package also returns the heat consumption in MW (initial_T=781) to give an indicative overview of the εnergy requirements.
+The package also returns the heat consumption in MW with default value of (initial_T=781) to give an indicative overview of the εnergy requirements.
 
 ```Python
 test_reac.get_heat_consumed(initial_T=781.00)
