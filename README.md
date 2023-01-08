@@ -50,6 +50,7 @@ mix.plot_conversions_yields()
 ![conversions_yields_gas](https://user-images.githubusercontent.com/91277572/208469178-6e58a363-3ff3-46bc-80a9-f09ca3b23ffe.png)
 
 The package allows you to consider carbon during the thermodynamic analysis.
+
 First, you have to add carbon.
 ```Python
 mix.add_carbon()
