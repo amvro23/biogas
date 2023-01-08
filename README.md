@@ -225,7 +225,6 @@ The package also returns the heat consumption in MW (initial_T=781) to give an i
 
 ```Python
 test_reac.get_heat_consumed(initial_T=781.00)
-conversions
 ```
 
 ```
