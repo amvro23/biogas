@@ -170,7 +170,7 @@ class GasEquilibrium:
         fig.show()
 
             
-class CarbonEquilibrium(GasEquilibrium):
+class Equilibrium(GasEquilibrium):
     
     def __init__(self, T = 500, P = 1, P0 = 1, R = 8.314):
         """Class for equilibrium compositions for gas mixture considering carbon.
@@ -185,13 +185,13 @@ class CarbonEquilibrium(GasEquilibrium):
         R  : float, optional
              Gas constant [kJ/kmol/K], by default 8.314
         """
-        super(CarbonEquilibrium, self).__init__(T=T, P=P, P0=P0, R=R)
+        super(Equilibrium, self).__init__(T=T, P=P, P0=P0, R=R)
         
         self.dGf_carbon = 0
         self.a_jk_carbon = np.vstack([a_jk, atoms_coeffs(atoms_number, [C_], [1])])
         
         
-    def add_carbon(self): 
+    def add_carbon(self):
         self.inlet_species_carbon = np.append([self._inlet_values], 0.0)
         
 
