@@ -33,7 +33,7 @@ Define the inlet ratio of biogas mixture which can either be diluted (default va
 mix.set_inlet(ych4=0.3, yco2=0.2, yar=0.5)
 ```
 
-or pure biogas (default value is 50% biogas & 50% argon inert gas).
+or pure biogas.
 ```Python
 mix.set_inlet(ych4=0.6, yco2=0.4, yar=0.0)
 ```
