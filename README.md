@@ -20,7 +20,7 @@ import warnings
 warnings.filterwarnings("ignore")
 ```
 # Equilibrium
-Create an object for the gas mixture of biogas (default values are T = 500K, P = 1atm, P0 = 1atm).
+Create an instance for the gas mixture of biogas (default values are T = 500K, P = 1atm, P0 = 1atm).
 ```
 mix = Equilibrium()
 ```
@@ -79,7 +79,7 @@ mix.to_excel_carbon('GasEquilibriumCarbon')
 ```
 
 # Reactor
-First you have to create an object for the test reactor.
+First you have to create an instance for the test reactor.
 ```Python
 test_reac = SingleBed()
 ```
