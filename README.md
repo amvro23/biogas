@@ -22,7 +22,7 @@ warnings.filterwarnings("ignore")
 # Equilibrium
 Create an object for the gas mixture of biogas (default values are T = 500K, P = 1atm, P0 = 1atm).
 ```
-mix = CarbonEquilibrium()
+mix = Equilibrium()
 ```
 Define the temperature range for equilibrium analysis (default is 573.15K to 1213.15K)
 ```Python
