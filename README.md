@@ -30,7 +30,7 @@ mix.T_range = np.linspace(573.15, 1213.15)
 ```
 Define the inlet ratio of biogas mixture which can either be diluted,
 ```Python
-mix.set_inlet(ych4=0.3, yco2=0.2, yar=0.5) # for diluted mixture
+mix.set_inlet(ych4=0.3, yco2=0.2, yar=0.5) # for diluted mixture (default values)
 ```
 
 or pure biogas (default value is 50% biogas & 50% argon inert gas).
