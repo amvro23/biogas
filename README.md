@@ -232,7 +232,7 @@ Out
 2.792282394738481e-07
 ```
 
-Finally, you can get an excell file of the molar rates, temperature, and pressure profiles to reate your own plots.
+Finally, you can get an excell file of the molar rates, temperature, and pressure profiles to create your own plots.
 
 ```Python
 test_reac.to_excel("SingleBed")
