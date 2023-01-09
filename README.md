@@ -206,7 +206,7 @@ plt.show()
 ![mf](https://user-images.githubusercontent.com/91277572/211168849-c742187d-93e0-421c-ab06-1c5ae15cf8ed.png)
 ![temp](https://user-images.githubusercontent.com/91277572/211168846-f7c818e5-6e09-4c8c-be4d-772787affac2.png)
 
-The user can also have access to the values of conversions and yields (e.g., at T = 950K).
+The user can also have access to the values of conversions and yields (e.g., at T=950K).
 
 ```Python
 conversions = test_reac.conversion
@@ -221,7 +221,7 @@ Out:
  'Xco': 68.40284907028743}
 ```
 
-The package also returns the heat consumption in MW with default value of (initial_T=781) to give an indicative overview of the εnergy requirements.
+The package also returns the heat consumption in MW with default value of (initial_T=781K) to give an indicative overview of the εnergy requirements.
 
 ```Python
 test_reac.get_heat_consumed(initial_T=781.00)
