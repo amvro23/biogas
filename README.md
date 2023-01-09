@@ -41,13 +41,13 @@ You can create a plot regarding the desired gas mixture (e.g., diluted mixture).
 ```Python
 mix.plot_molar_ratio()
 ```
-![molar_comp](https://user-images.githubusercontent.com/91277572/211278183-e1c80b23-c09b-4750-93ed-cda7d7a21dfb.png)
+![molar](https://user-images.githubusercontent.com/91277572/211278653-cd7515ce-0b07-49b3-a556-2a51cee4a74c.png)
 
 You can also create a plot for the gas mixture conversions, yields and ratios (e.g., diluted mixture).
 ```Python
 mix.plot_conversions_yields()
 ```
-![conv](https://user-images.githubusercontent.com/91277572/211278315-95daf0be-8010-4b98-a4c4-84f8a5bce86d.png)
+![conv](https://user-images.githubusercontent.com/91277572/211278532-7adfea83-c938-418a-81ec-f1eca6f4b500.png)
 
 The package allows you to consider carbon during the thermodynamic analysis.
 
