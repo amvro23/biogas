@@ -216,7 +216,7 @@ class Equilibrium(GasEquilibrium):
     @property
     def min_fun_carbon(self, **kwargs):
         if self.carbon == 0:
-            raise IndexError('Please add carbon: self.add_carbon()')
+            raise IndexError('Please add carbon before: self.add_carbon()')
         n0 = np.random.rand(len(self.inlet_species_carbon))
         sol = fmin_slsqp(self.gibbs_min_carbon, n0, f_eqcons=self.ec2, f_ieqcons=self.ic1)
         yj = sol/np.sum(sol)
