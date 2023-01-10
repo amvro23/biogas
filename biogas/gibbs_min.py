@@ -81,7 +81,7 @@ class GasEquilibrium:
         return nj
     
     @property
-    def min_fun(self):
+    def min_fun(self, **kwargs):
         n0 = np.random.rand(len(self._inlet_values))
         sol = fmin_slsqp(self.gibbs_min, n0, f_eqcons=self.ec1, f_ieqcons=self.ic1)
         yj = sol/np.sum(sol)
@@ -138,7 +138,7 @@ class GasEquilibrium:
                                                    sheet_name='GasEquilibrium')
 
     def plot_conversions_yields(self):
-        fig, ax = plt.subplots(figsize = (6,4), dpi = 200)
+        fig, ax = plt.subplots(figsize = (6,4), dpi = 100)
         ax.plot(self.T_range - 273.15, self.conversions['Xch4'], label = '$CH_4$')
         ax.plot(self.T_range - 273.15, self.conversions['Xco2'], label = '$CO_2$')
         ax.plot(self.T_range - 273.15, self.yields['Yh2'], label = '$H_2$')
@@ -156,7 +156,7 @@ class GasEquilibrium:
 
     def plot_molar_ratio(self):
         yj = self.multiple_temperatures(self.T_range)
-        fig, ax = plt.subplots(figsize = (6,4), dpi = 200)
+        fig, ax = plt.subplots(figsize = (6,4), dpi = 100)
         ax.plot(self.T_range - 273.15, yj[CH4], label = '$CH_4$')
         ax.plot(self.T_range - 273.15, yj[CO2], label = '$CO_2$')
         ax.plot(self.T_range - 273.15, yj[H2O], label = '$H_2O$')
@@ -189,11 +189,11 @@ class Equilibrium(GasEquilibrium):
         
         self.dGf_carbon = 0
         self.a_jk_carbon = np.vstack([a_jk, atoms_coeffs(atoms_number, [C_], [1])])
-        
+        self.carbon = 0
         
     def add_carbon(self):
         self.inlet_species_carbon = np.append([self._inlet_values], 0.0)
-        
+        self.carbon = self.carbon + 1
 
     def gibbs_min_carbon(self, n):
         """Minimized Gibbs energy of a mixture considering carbon"""
@@ -214,7 +214,9 @@ class Equilibrium(GasEquilibrium):
 
 
     @property
-    def min_fun_carbon(self):
+    def min_fun_carbon(self, **kwargs):
+        if self.carbon == 0:
+            raise IndexError('Please add carbon: self.add_carbon()')
         n0 = np.random.rand(len(self.inlet_species_carbon))
         sol = fmin_slsqp(self.gibbs_min_carbon, n0, f_eqcons=self.ec2, f_ieqcons=self.ic1)
         yj = sol/np.sum(sol)
