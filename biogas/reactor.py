@@ -46,9 +46,9 @@ class CatalystBed(object):
                    Terminal pressure to interrupt ODE system [bar], by default None
         ivp_rtol : float, optional
                    Relative tolerance for ODE system, by default 1e-6
-        eg       : Void fraction of the catalyst bed"
+        eg       : float, optional
+                   Void fraction of the catalyst bed"
         """
-
         self.z = z
         self.rhos = rhos
         self.rhob = rhob
@@ -83,21 +83,21 @@ class CatalystBed(object):
         """Set inlet conditions of catalyst bed.
         Parameters
         ----------
-        Fch4 : float, optional
+        Fch4 : float or int, optional
              Methane feed ratio [ml/min], by default 30
-        Fco2 : float, optional
+        Fco2 : float or int, optional
              Carbon dioxide feed ratio [ml/min], by default 
-        Fh2o : float, optional
+        Fh2o : float or int, optional
              Water feed ratio [ml/min], by default 0.0
-        Fh2  : float, optional
+        Fh2  : float or int, optional
              Hydrogen feed ratio [ml/min], by default 0.0
-        Fco  : float, optional
+        Fco  : float or int, optional
              Carbon monoxide feed ratio [ml/min], by default 0.0
-        Far  : float, optional
+        Far  : float or int, optional
              Argon [ml/min], by default 50
-        T    : int, optional
+        T    : float or int, optional
              Temperature [K], by default 773
-        P    : float, optional
+        P    : float or int, optional
              Pressure [bar], by default 1.0
         """
         convert_to_mol_sec = 1/22414/60
@@ -202,8 +202,12 @@ class AxialBed(CatalystBed):
                    Terminal pressure to interrupt ODE system [bar], by default None
         ivp_rtol : float, optional
                    Relative tolerance for ODE system, by default 1e-6
+        Ac       : float
+                   transversal area of the bed [m2]
+        effi     : float or int
+                   effectiveness factors of each reaction
+        dW       : rhob.Ac.dz
         """
-
         super(AxialBed, self).__init__(
             z, rhos=rhos, rhob=rhob, es=es, dp=dp, tao=tao, 
             inner_R=inner_R, **options
@@ -225,7 +229,6 @@ class AxialBed(CatalystBed):
         y = F / Ft
         pp = y * P
         
-        """factor to convert dW = dz.rhob.Ac"""
         factor = self.Ac*self.rhob
 
         rxn_SRM1 = self.eff1*rxn_srm1(pp, T)*factor
@@ -290,6 +293,15 @@ class Cooler(CatalystBed):
                    Terminal pressure to interrupt ODE system [bar], by default None
         ivp_rtol : float, optional
                    Relative tolerance for ODE system, by default 1e-6
+        U        : float
+                   Overall heat transfer coefficient [J/m2/s/K]
+        Ac       : float
+                   transversal area of the bed [m2]
+        Tcool    : float
+                   Cooler in ambient temperature [K]
+        effi     : float or int
+                   effectiveness factors of each reaction
+        dW       : rhob.Ac.dz
         """
 
         super(Cooler, self).__init__(
@@ -298,9 +310,7 @@ class Cooler(CatalystBed):
         )
 
         self.Ac = math.pi*inner_R**2
-        """overall heat transfer coefficient [J/m2/s/K]"""
-        self.U = 500
-        """cooler is at ambient temperature"""
+        self.U = 500.0
         self.Tcool = 298.15
         self.eff1 = 1.086e-2
         self.eff2 = 0.0
@@ -317,7 +327,6 @@ class Cooler(CatalystBed):
         y = F / Ft
         pp = y * P
         
-        """factor to convert dW = rhob.Ac.dz"""
         factor = self.Ac*self.rhob
 
         rxn_SRM1 = self.eff1*rxn_srm1(pp, T)*factor
@@ -493,7 +502,7 @@ class SingleBed(object):
             self.outlet = self.beds[1].outlet
             
         elif self.n_beds > 1:
-            raise IndexError('You can only one bed')
+            raise IndexError('You can only on bed')
 
 
     def get_outlet(self, **options):
