@@ -449,21 +449,21 @@ class SingleBed(object):
         """Set inlet conditions of the first catalyst bed.
         Parameters
         ----------
-        Fch4 : float, optional
+        Fch4 : float or int, optional
              Methane feed ratio [ml/min], by default 30
-        Fco2 : float, optional
+        Fco2 : float or int, optional
              Carbon dioxide feed ratio [ml/min], by default 
-        Fh2o : float, optional
-             Water feed ratio [ml/min], by default 0.0
-        Fh2  : float, optional
-             Hydrogen feed ratio [ml/min], by default 0.0
-        Fco  : float, optional
+        Fh2o : float or int, optional
+             Water feed ratio [ml/min], by default 1.2e-2
+        Fh2  : float or int, optional
+             Hydrogen feed ratio [ml/min], by default 1.2e-2
+        Fco  : float or int, optional
              Carbon monoxide feed ratio [ml/min], by default 0.0
-        Far  : float, optional
+        Far  : float or int, optional
              Argon [ml/min], by default 50
-        T    : int, optional
+        T    : float or int, optional
              Temperature [K], by default 773
-        P    : float, optional
+        P    : float or int, optional
              Pressure [bar], by default 1.0
         """
 
