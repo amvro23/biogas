@@ -26,33 +26,33 @@ class CatalystBed(object):
         """Class for catalyst bed.
         Parameters
         ----------
-        z : float
-            Reactor length [m].
-        rhos : float, optional
-            Catalyst solid density [kg/m3], by default 950.0
-        rhob : float, optional
-            Catalyst bulk density [kg/m3], by default 570.0
-        es : float, optional
-            Catalyst solid void fraction, by default 0.4
-        dp : float, optional
-            Pellet equivalent diameter [m], by default 0.425e-3
-        tao : float, optional
-            Pellet tortuosity, by default 3.0
-        inner_R : float, optional
-            Catalyst bed inner radius [m], by default 9.2e-3
-        Pmin : float, optional
-            Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
-        Pterm : float or None, optional
-            Terminal pressure to interrupt ODE system [bar], by default None
+        z        : float
+                   Reactor length [m].
+        rhos     : float, optional
+                   Catalyst solid density [kg/m3], by default 950.0
+        rhob     : float, optional
+                   Catalyst bulk density [kg/m3], by default 570.0
+        es       : float, optional
+                   Catalyst solid void fraction, by default 0.4
+        dp       : float, optional
+                   Pellet equivalent diameter [m], by default 0.425e-3
+        tao      : float, optional
+                   Pellet tortuosity, by default 3.0
+        inner_R  : float, optional
+                   Catalyst bed inner radius [m], by default 9.2e-3
+        Pmin     : float, optional
+                   Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
+        Pterm    : float or None, optional
+                   Terminal pressure to interrupt ODE system [bar], by default None
         ivp_rtol : float, optional
-            Relative tolerance for ODE system, by default 1e-6
+                   Relative tolerance for ODE system, by default 1e-6
+        eg       : Void fraction of the catalyst bed"
         """
 
         self.z = z
         self.rhos = rhos
         self.rhob = rhob
         self.es = es
-        """Void fraction of the catalyst bed"""
         self.eg = 1 - rhob/rhos
         self.dp = dp
         self.tao = tao
@@ -84,20 +84,20 @@ class CatalystBed(object):
         Parameters
         ----------
         Fch4 : float, optional
-             Ethylbenzene feed ratio [ml/min], by default 30
+             Methane feed ratio [ml/min], by default 30
         Fco2 : float, optional
-             Styrene feed ratio [ml/min], by default 
+             Carbon dioxide feed ratio [ml/min], by default 
         Fh2o : float, optional
-             Water feed ratio [mol/min], by default 0.0
+             Water feed ratio [ml/min], by default 0.0
         Fh2  : float, optional
              Hydrogen feed ratio [ml/min], by default 0.0
         Fco  : float, optional
              Carbon monoxide feed ratio [ml/min], by default 0.0
         Far  : float, optional
              Argon [ml/min], by default 50
-        T :  int, optional
+        T    : int, optional
              Temperature [K], by default 773
-        P :  float, optional
+        P    : float, optional
              Pressure [bar], by default 1.0
         """
         convert_to_mol_sec = 1/22414/60
@@ -112,7 +112,7 @@ class CatalystBed(object):
         keys = ['Fch4', 'Fco2', 'Fh2o', 'Fh2', 'Fco', 'Far', 'T', 'P']
         self.inlet = dict(zip(keys, params))
         self._inlet_values = params
-        self._keys = keys        
+        self._keys = keys
 
 
     def solve(self, points_eval=None, **kwargs):
@@ -182,26 +182,26 @@ class AxialBed(CatalystBed):
         """Class for catalyst bed.
         Parameters
         ----------
-        z : float
-            Reactor length [m].
-        rhos : float, optional
-            Catalyst solid density [kg/m3], by default 950.0
-        rhob : float, optional
-            Catalyst bulk density [kg/m3], by default 570.0
-        es : float, optional
-            Catalyst solid void fraction, by default 0.4
-        dp : float, optional
-            Pellet equivalent diameter [m], by default 0.425e-3
-        tao : float, optional
-            Pellet tortuosity, by default 3.0
-        inner_R : float, optional
-            Catalyst bed inner radius [m], by default 9.2e-3
-        Pmin : float, optional
-            Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
-        Pterm : float or None, optional
-            Terminal pressure to interrupt ODE system [bar], by default None
+        z        : float
+                   Reactor length [m].
+        rhos     : float, optional
+                   Catalyst solid density [kg/m3], by default 950.0
+        rhob     : float, optional
+                   Catalyst bulk density [kg/m3], by default 570.0
+        es       : float, optional
+                   Catalyst solid void fraction, by default 0.4
+        dp       : float, optional
+                   Pellet equivalent diameter [m], by default 0.425e-3
+        tao      : float, optional
+                   Pellet tortuosity, by default 3.0
+        inner_R  : float, optional
+                   Catalyst bed inner radius [m], by default 9.2e-3
+        Pmin     : float, optional
+                   Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
+        Pterm    : float or None, optional
+                   Terminal pressure to interrupt ODE system [bar], by default None
         ivp_rtol : float, optional
-            Relative tolerance for ODE system, by default 1e-6
+                   Relative tolerance for ODE system, by default 1e-6
         """
 
         super(AxialBed, self).__init__(
@@ -270,26 +270,26 @@ class Cooler(CatalystBed):
         """Class for catalyst bed with a cooloer incorporated.
         Parameters
         ----------
-        z : float
-            Reactor length [m].
-        rhos : float, optional
-            Catalyst solid density [kg/m3], by default 950.0
-        rhob : float, optional
-            Catalyst bulk density [kg/m3], by default 570.0
-        es : float, optional
-            Catalyst solid void fraction, by default 0.4
-        dp : float, optional
-            Pellet equivalent diameter [m], by default 0.425e-3
-        tao : float, optional
-            Pellet tortuosity, by default 3.0
-        inner_R : float, optional
-            Catalyst bed inner radius [m], by default 9.2e-3
-        Pmin : float, optional
-            Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
-        Pterm : float or None, optional
-            Terminal pressure to interrupt ODE system [bar], by default None
+        z        : float
+                   Reactor length [m].
+        rhos     : float, optional
+                   Catalyst solid density [kg/m3], by default 950.0
+        rhob     : float, optional
+                   Catalyst bulk density [kg/m3], by default 570.0
+        es       : float, optional
+                   Catalyst solid void fraction, by default 0.4
+        dp       : float, optional
+                   Pellet equivalent diameter [m], by default 0.425e-3
+        tao      : float, optional
+                   Pellet tortuosity, by default 3.0
+        inner_R  : float, optional
+                   Catalyst bed inner radius [m], by default 9.2e-3
+        Pmin     : float, optional
+                   Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
+        Pterm    : float or None, optional
+                   Terminal pressure to interrupt ODE system [bar], by default None
         ivp_rtol : float, optional
-            Relative tolerance for ODE system, by default 1e-6
+                   Relative tolerance for ODE system, by default 1e-6
         """
 
         super(Cooler, self).__init__(
@@ -298,7 +298,9 @@ class Cooler(CatalystBed):
         )
 
         self.Ac = math.pi*inner_R**2
+        """overall heat transfer coefficient [J/m2/s/K]"""
         self.U = 500
+        """cooler is at ambient temperature"""
         self.Tcool = 298.15
         self.eff1 = 1.086e-2
         self.eff2 = 0.0
@@ -315,7 +317,7 @@ class Cooler(CatalystBed):
         y = F / Ft
         pp = y * P
         
-        """factor to convert dW = dz.rhob.Ac"""
+        """factor to convert dW = rhob.Ac.dz"""
         factor = self.Ac*self.rhob
 
         rxn_SRM1 = self.eff1*rxn_srm1(pp, T)*factor
@@ -372,26 +374,26 @@ class SingleBed(object):
         """Class for catalyst bed.
         Parameters
         ----------
-        z : float
-            Reactor length [m].
-        rhos : float, optional
-            Catalyst solid density [kg/m3], by default 950.0
-        rhob : float, optional
-            Catalyst bulk density [kg/m3], by default 570.0
-        es : float, optional
-            Catalyst solid void fraction, by default 0.4
-        dp : float, optional
-            Pellet equivalent diameter [m], by default 0.425e-3
-        tao : float, optional
-            Pellet tortuosity, by default 3.0
-        inner_R : float, optional
-            Catalyst bed inner radius [m], by default 9.2e-3
-        Pmin : float, optional
-            Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
-        Pterm : float or None, optional
-            Terminal pressure to interrupt ODE system [bar], by default NoneS
+        z        : float
+                   Reactor length [m].
+        rhos     : float, optional
+                   Catalyst solid density [kg/m3], by default 950.0
+        rhob     : float, optional
+                   Catalyst bulk density [kg/m3], by default 570.0
+        es       : float, optional
+                   Catalyst solid void fraction, by default 0.4
+        dp       : float, optional
+                   Pellet equivalent diameter [m], by default 0.425e-3
+        tao      : float, optional
+                   Pellet tortuosity, by default 3.0
+        inner_R  : float, optional
+                   Catalyst bed inner radius [m], by default 9.2e-3
+        Pmin     : float, optional
+                   Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
+        Pterm    : float or None, optional
+                   Terminal pressure to interrupt ODE system [bar], by default None
         ivp_rtol : float, optional
-            Relative tolerance for ODE system, by default 1e-6
+                   Relative tolerance for ODE system, by default 1e-6
         """
         self.n_beds = self.n_beds + 1
         self.beds[self.n_beds] = AxialBed(
@@ -407,26 +409,26 @@ class SingleBed(object):
         """Class for catalyst bed with a cooler incorporated.
         Parameters
         ----------
-        z : float
-            Reactor length [m].
-        rhos : float, optional
-            Catalyst solid density [kg/m3], by default 950.0
-        rhob : float, optional
-            Catalyst bulk density [kg/m3], by default 570.0
-        es : float, optional
-            Catalyst solid void fraction, by default 0.4
-        dp : float, optional
-            Pellet equivalent diameter [m], by default 0.425e-3
-        tao : float, optional
-            Pellet tortuosity, by default 3.0
-        inner_R : float, optional
-            Catalyst bed inner radius [m], by default 9.2e-3
-        Pmin : float, optional
-            Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
-        Pterm : float or None, optional
-            Terminal pressure to interrupt ODE system [bar], by default NoneS
+        z        : float
+                   Reactor length [m].
+        rhos     : float, optional
+                   Catalyst solid density [kg/m3], by default 950.0
+        rhob     : float, optional
+                   Catalyst bulk density [kg/m3], by default 570.0
+        es       : float, optional
+                   Catalyst solid void fraction, by default 0.4
+        dp       : float, optional
+                   Pellet equivalent diameter [m], by default 0.425e-3
+        tao      : float, optional
+                   Pellet tortuosity, by default 3.0
+        inner_R  : float, optional
+                   Catalyst bed inner radius [m], by default 9.2e-3
+        Pmin     : float, optional
+                   Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
+        Pterm    : float or None, optional
+                   Terminal pressure to interrupt ODE system [bar], by default None
         ivp_rtol : float, optional
-            Relative tolerance for ODE system, by default 1e-6
+                   Relative tolerance for ODE system, by default 1e-6
         """
         self.n_beds = self.n_beds + 1
         self.beds[self.n_beds] = Cooler(
@@ -439,9 +441,9 @@ class SingleBed(object):
         Parameters
         ----------
         Fch4 : float, optional
-             Ethylbenzene feed ratio [ml/min], by default 30
+             Methane feed ratio [ml/min], by default 30
         Fco2 : float, optional
-             Styrene feed ratio [ml/min], by default 
+             Carbon dioxide feed ratio [ml/min], by default 
         Fh2o : float, optional
              Water feed ratio [ml/min], by default 0.0
         Fh2  : float, optional
@@ -450,9 +452,9 @@ class SingleBed(object):
              Carbon monoxide feed ratio [ml/min], by default 0.0
         Far  : float, optional
              Argon [ml/min], by default 50
-        T :  int, optional
+        T    : int, optional
              Temperature [K], by default 773
-        P :  float, optional
+        P    : float, optional
              Pressure [bar], by default 1.0
         """
 
@@ -489,6 +491,9 @@ class SingleBed(object):
 
         elif self.n_beds == 1:
             self.outlet = self.beds[1].outlet
+            
+        elif self.n_beds > 1:
+            raise IndexError('You can only one bed')
 
 
     def get_outlet(self, **options):
