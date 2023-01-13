@@ -65,7 +65,7 @@ or, you can create a plot for the gas mixture conversions, yields and ratios.
 ```Python
 mix.plot_molar_ratio_carbon()
 ```
-![eqconv](https://user-images.githubusercontent.com/91277572/211210090-1c8d4313-a6c9-493b-a703-afb751728621.png)
+![equilibrium_conv_C](https://user-images.githubusercontent.com/91277572/212338934-7ebadd03-74ab-4eb5-8dc0-7a6890d18915.png)
 
 You can also obtain a dataframe of all the obtained numerical values of conversions, yields, molar ratio compositions etc., for both cases (i.e., with and without carbon) by using the following.
 ```Python
