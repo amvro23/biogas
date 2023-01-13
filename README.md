@@ -47,7 +47,7 @@ You can also create a plot for the gas mixture conversions, yields and ratios (e
 ```Python
 mix.plot_conversions_yields()
 ```
-![conv](https://user-images.githubusercontent.com/91277572/211278532-7adfea83-c938-418a-81ec-f1eca6f4b500.png)
+![equilibrium_conv](https://user-images.githubusercontent.com/91277572/212335523-767a0300-8c2c-414d-a5d2-68cd25872a22.png)
 
 The package allows you to consider carbon during the thermodynamic analysis.
 
