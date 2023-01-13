@@ -41,7 +41,7 @@ You can create a plot regarding the desired gas mixture (e.g., diluted mixture).
 ```Python
 mix.plot_molar_ratio()
 ```
-![molar](https://user-images.githubusercontent.com/91277572/211278653-cd7515ce-0b07-49b3-a556-2a51cee4a74c.png)
+![equilibrium_comp](https://user-images.githubusercontent.com/91277572/212334686-0a94dd74-9692-4b96-9f5b-e7dd38073043.png)
 
 You can also create a plot for the gas mixture conversions, yields and ratios (e.g., diluted mixture).
 ```Python
