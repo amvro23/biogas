@@ -59,7 +59,7 @@ Then, by applying that same logic you can have access to molar composition plots
 ```Python
 mix.plot_molar_ratio_carbon()
 ```
-![eq_comp](https://user-images.githubusercontent.com/91277572/211210025-6f60cfa8-072c-403b-aee1-3cde791a9f7c.png)
+![equilibrium_conv_C](https://user-images.githubusercontent.com/91277572/212339606-646e5e94-6014-4aa4-a211-76199b904cb2.png)
 
 or, you can create a plot for the gas mixture conversions, yields and ratios.
 ```Python
