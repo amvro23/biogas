@@ -218,7 +218,7 @@ plt.show()
 ![temp_profiles](https://user-images.githubusercontent.com/91277572/212485191-4104d19e-6dee-45e7-b38b-fd3a20d4a37e.png)
 
 
-The user can also have access to the values of conversions and yields (e.g., at T=950K).
+The user can also have access to the values of conversions (T=1000K)
 
 ```Python
 conversions = test_reac.conversion
@@ -227,10 +227,10 @@ conversions
 
 ```
 Out: 
-{'Xch4': 55.10987440137124,
- 'Xco2': 88.3423110736619,
- 'Xh2': 53.23404124416936,
- 'Xco': 68.40284907028743}
+{'Xch4': 52.15113752011564,
+ 'Xco2': 86.35640511938523,
+ 'Xh2': 49.441254573711674,
+ 'Xco': 65.83324455982348}
 ```
 
 The package also returns the heat consumption in MW with default value of (initial_T=781K) to give an indicative overview of the εnergy requirements.
