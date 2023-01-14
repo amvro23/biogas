@@ -121,8 +121,9 @@ ax.grid(ls=":")
 fig.tight_layout()
 plt.show()
 ```
-![773_mr](https://user-images.githubusercontent.com/91277572/211167335-dcc1993a-fccf-423d-9de2-f765b202c21e.png)
-![773T_mr](https://user-images.githubusercontent.com/91277572/211167369-d9ce6a15-929e-4e0c-8a56-03c507dfa6e5.png)
+![molar_rates](https://user-images.githubusercontent.com/91277572/212484553-ca20e217-5440-41f6-96c3-fb5e2fbed678.png)
+
+![temp_profiles](https://user-images.githubusercontent.com/91277572/212484620-1d89a664-a4f7-4ae1-98e9-b19ac9616834.png)
 
 or for the axial bed reactor at T=950K,
 
@@ -144,7 +145,7 @@ ax.grid(ls=":")
 fig.tight_layout()
 plt.show()
 ```
-![950T_mr](https://user-images.githubusercontent.com/91277572/211167584-4a1a3396-0e7a-491b-adb7-7feacb7bd531.png)
+![molar_rates](https://user-images.githubusercontent.com/91277572/212484659-e5674c81-6299-466c-9dc9-e3bf8bdfc9c4.png)
 
 or for the cooler using the default values.
 
