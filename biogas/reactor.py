@@ -20,7 +20,7 @@ class CatalystBed(object):
     def __init__(
         self, z,
         rhos=950.0, rhob=570.0, es=0.4,
-        dp=0.425e-3, tao=3.0, inner_R=9.2e-3, Pmin=0.5, Pterm=None,
+        dp=0.425e-3, tao=3.0, inner_R=4.6e-3, Pmin=0.5, Pterm=None,
         terminal=True, ivp_rtol=1e-6
     ):
         """Class for catalyst bed.
@@ -39,7 +39,7 @@ class CatalystBed(object):
         tao      : float, optional
                    Pellet tortuosity, by default 3.0
         inner_R  : float, optional
-                   Catalyst bed inner radius [m], by default 9.2e-3
+                   Catalyst bed inner radius [m], by default 4.6e-3
         Pmin     : float, optional
                    Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
         Pterm    : float or None, optional
@@ -176,7 +176,7 @@ class AxialBed(CatalystBed):
     def __init__(
         self, z,
         rhos=950.0, rhob=570.0, es=0.4,
-        dp=0.425e-3, tao=3.0, inner_R=9.2e-3,
+        dp=0.425e-3, tao=3.0, inner_R=4.6e-3,
         **options
     ):
         """Class for catalyst bed.
@@ -195,7 +195,7 @@ class AxialBed(CatalystBed):
         tao      : float, optional
                    Pellet tortuosity, by default 3.0
         inner_R  : float, optional
-                   Catalyst bed inner radius [m], by default 9.2e-3
+                   Catalyst bed inner radius [m], by default 4.6e-3
         Pmin     : float, optional
                    Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
         Pterm    : float or None, optional
@@ -267,7 +267,7 @@ class Cooler(CatalystBed):
     def __init__(
         self, z,
         rhos=950.0, rhob=570.0, es=0.4,
-        dp=0.425e-3, tao=3.0, inner_R=9.2e-3,
+        dp=0.425e-3, tao=3.0, inner_R=4.6e-3,
         **options
     ):
         """Class for catalyst bed with a cooloer incorporated.
@@ -286,7 +286,7 @@ class Cooler(CatalystBed):
         tao      : float, optional
                    Pellet tortuosity, by default 3.0
         inner_R  : float, optional
-                   Catalyst bed inner radius [m], by default 9.2e-3
+                   Catalyst bed inner radius [m], by default 4.6e-3
         Pmin     : float, optional
                    Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
         Pterm    : float or None, optional
@@ -310,7 +310,7 @@ class Cooler(CatalystBed):
         )
 
         self.Ac = math.pi*inner_R**2
-        self.U = 500.0
+        self.U = 470.0
         self.Tcool = 298.15
         self.eff1 = 1.086e-2
         self.eff2 = 0.0
@@ -377,7 +377,7 @@ class SingleBed(object):
     def add_axial_bed(
         self, z,
         rhos=950.0, rhob=570.0, es=0.4,
-        dp=0.425e-3, tao=3.0, inner_R=9.2e-3,
+        dp=0.425e-3, tao=3.0, inner_R=4.6e-3,
         **options
     ):
         """Class for catalyst bed.
@@ -396,7 +396,7 @@ class SingleBed(object):
         tao      : float, optional
                    Pellet tortuosity, by default 3.0
         inner_R  : float, optional
-                   Catalyst bed inner radius [m], by default 9.2e-3
+                   Catalyst bed inner radius [m], by default 4.6e-3
         Pmin     : float, optional
                    Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
         Pterm    : float or None, optional
@@ -412,7 +412,7 @@ class SingleBed(object):
     def add_cooler(
         self, z,
         rhos=950.0, rhob=570.0, es=0.4,
-        dp=0.425e-3, tao=3.0, inner_R=9.2e-3,
+        dp=0.425e-3, tao=3.0, inner_R=4.6e-3,
         **options
     ):
         """Class for catalyst bed with a cooler incorporated.
@@ -431,7 +431,7 @@ class SingleBed(object):
         tao      : float, optional
                    Pellet tortuosity, by default 3.0
         inner_R  : float, optional
-                   Catalyst bed inner radius [m], by default 9.2e-3
+                   Catalyst bed inner radius [m], by default 4.6e-3
         Pmin     : float, optional
                    Minimum pressure allowed [bar]. Useful in optimization. By default 0.5
         Pterm    : float or None, optional
@@ -444,7 +444,7 @@ class SingleBed(object):
             z, rhos=rhos, rhob=rhob, es=es, dp=dp, tao=tao, inner_R=inner_R, **options
         )
 
-    def set_inlet(self, Fch4=30, Fco2=20, Fh2o=1e-2, Fh2=1e-2, Fco=0.0,
+    def set_inlet(self, Fch4=30, Fco2=20, Fh2o=1e-1, Fh2=1.0e-5, Fco=0.0,
                   Far=50, T=773, P=1.0):
         """Set inlet conditions of the first catalyst bed.
         Parameters
