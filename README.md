@@ -214,9 +214,9 @@ ax.grid(ls=":")
 fig.tight_layout()
 plt.show()
 ```
+![molar_rates](https://user-images.githubusercontent.com/91277572/212485185-03e71c38-35fd-4475-830a-2e92ae3c27af.png)
+![temp_profiles](https://user-images.githubusercontent.com/91277572/212485191-4104d19e-6dee-45e7-b38b-fd3a20d4a37e.png)
 
-![mf](https://user-images.githubusercontent.com/91277572/211168849-c742187d-93e0-421c-ab06-1c5ae15cf8ed.png)
-![temp](https://user-images.githubusercontent.com/91277572/211168846-f7c818e5-6e09-4c8c-be4d-772787affac2.png)
 
 The user can also have access to the values of conversions and yields (e.g., at T=950K).
 
