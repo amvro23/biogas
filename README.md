@@ -120,6 +120,15 @@ ax.legend()
 ax.grid(ls=":")
 fig.tight_layout()
 plt.show()
+
+fig, ax = plt.subplots(figsize=[6, 4], dpi=100, sharex=True)
+ax.plot(profiles.index[1:], profiles["T"].iloc[1:], color="purple", label="$T$")
+ax.set_ylabel("$T$ [K]")
+ax.set_xlabel("$z$ [m]")
+ax.legend()
+ax.grid(ls=":")
+fig.tight_layout()
+plt.show()
 ```
 ![molar_rates](https://user-images.githubusercontent.com/91277572/212484553-ca20e217-5440-41f6-96c3-fb5e2fbed678.png)
 
