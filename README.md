@@ -159,13 +159,15 @@ plt.show()
 or for the cooler using the default values.
 
 ```Python
-test_reac.add_axial_bed(5.1e-3)
+test_reac = SingleBed()
+test_reac.add_cooler(5.1e-3)
+
 test_reac.set_inlet()
 test_reac.solve()
 profiles = test_reac.get_dataframe()
 
 fig, ax = plt.subplots(figsize=[6, 4], dpi=100, sharex=True)
-ax.plot(profiles.index, profiles["T"], color="purple", label="$T$")
+ax.plot(profiles.index[1:], profiles["T"].iloc[1:], color="purple", label="$T$")
 ax.set_ylabel("$T$ [K]")
 ax.set_xlabel("$z$ [m]")
 ax.legend()
@@ -173,7 +175,7 @@ ax.grid(ls=":")
 fig.tight_layout()
 plt.show()
 ```
-![773T_mr](https://user-images.githubusercontent.com/91277572/211167473-ed98254c-d83a-4060-bd2d-c2b15a2bbd46.png)
+![temp_profiles](https://user-images.githubusercontent.com/91277572/212484990-4beea929-e351-43fd-b43b-afe6b887cafe.png)
 
 The effectiveness factors can also be adjusted accordingly.
 ```Python
