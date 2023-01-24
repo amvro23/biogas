@@ -218,7 +218,7 @@ plt.show()
 ![temp_profiles](https://user-images.githubusercontent.com/91277572/212485191-4104d19e-6dee-45e7-b38b-fd3a20d4a37e.png)
 
 
-The user can also have access to the values of conversions (T=1000K)
+The user can also have access to the values of conversions (e.g., T=1000K)
 
 ```Python
 conversions = test_reac.conversion
