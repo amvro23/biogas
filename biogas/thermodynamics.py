@@ -81,7 +81,7 @@ def calc_delta_hr(T, delta_hr298, va, vb, vc, vd):
 
 def calc_delta_sr(T, delta_sr298, va, vb, vc, vd):
     """
-    Returns the entropy of reaction in kJ/kmol.
+    Returns the entropy of reaction in kJ/kmol/K.
     Parameters
     ----------
     T : float or int
