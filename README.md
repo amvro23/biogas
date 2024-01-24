@@ -63,7 +63,7 @@ mix.plot_molar_ratio_carbon()
 
 or, you can create a plot for the gas mixture conversions, yields and ratios.
 ```Python
-mix.plot_conversions_yields_carbon
+mix.plot_conversions_yields_carbon()
 ```
 ![equilibrium_conv_C](https://user-images.githubusercontent.com/91277572/212338934-7ebadd03-74ab-4eb5-8dc0-7a6890d18915.png)
 
