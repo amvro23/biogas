@@ -253,7 +253,7 @@ test_reac.to_excel("SingleBed")
 The kinetic model, effectiveness factors, reactor characteristics and particle properties were reproduced based on the Charisiou et al. work, while other equations and parameters used herein were adopted from the Leite et al. articles.
 
 # References
-[Charisiou, N. D., Siakavelas, G., Papageridis, K. N., Baklavaridis, A., Tzounis, L., Avraam, D. G., & Goula, M. A. (2016). Syngas production via the biogas dry reforming reaction over nickel supported on modified with CeO2 and/or La2O3 alumina catalysts. Journal of Natural Gas Science and Engineering, 31, 164-183.](https://doi.org/10.1016/j.jngse.2016.02.021)
+[Georgiadis, A. G., Tsiotsias, A. I., Siakavelas, G. I., Charisiou, N. D., Ehrhardt, B., Wang, W., ... & Goula, M. A. (2024). An experimental and theoretical approach for the biogas dry reforming reaction using perovskite-derived La0. 8X0. 2NiO3-δ catalysts (X= Sm, Pr, Ce). Renewable Energy, 120511.](https://doi.org/10.1016/j.renene.2024.120511)
 
 [Leite, B., Costa, A. O. S., Costa, E. F., 2023. Multi-objective optimization of adiabatic styrene reactors using Generalized Differential Evolution 3 (GDE3). Chem. Eng. Sci., Volume 265, Article 118196.](https://doi.org/10.1016/j.ces.2022.118196)
 
