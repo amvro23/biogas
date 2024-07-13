@@ -161,9 +161,9 @@ def fnu(C, H, O, Arom):
     C : int
         Number of Carbons in substance.
     H : int
-        Number of Hidrogens in substance.
+        Number of Hydrogens in substance.
     O : int
-        Number of Oxigens in substance.
+        Number of Oxygens in substance.
     Arom : int
         Number of Aromatic rings in substance.
     Returns
