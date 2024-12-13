@@ -1,4 +1,4 @@
-![smaller_logo_biogas_package](https://github.com/user-attachments/assets/326e284a-a0f5-4202-8c10-2c07c820910c)
+![image](https://github.com/user-attachments/assets/291b54db-bc45-48db-b0cc-181a296e59dc)
 
 # biogas
 Thermodynamic and kinetic analysis of Biogas Dry Reforming
