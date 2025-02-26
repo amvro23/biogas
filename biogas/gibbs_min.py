@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-from biogas.thermodynamics import (calc_hf_temp, calc_sf_temp, calc_gibbs_temp)
-from biogas.data import (CH4, CO2, H2O, H2, CO, C_,
+from biogas_dry_reforming.thermodynamics import (calc_hf_temp, calc_sf_temp, calc_gibbs_temp)
+from biogas_dry_reforming.data import (CH4, CO2, H2O, H2, CO, C_,
                               a_jk, a_jk_inlet, 
                               atoms_coeffs, atoms_number,
                               HF298, SF298, A, B, C, D)
@@ -72,7 +72,8 @@ class GasEquilibrium:
     def ec1(self, nj):
         """conservation of atoms constraint - equality constraint"""
         nj = np.array(nj)
-        return a_jk.T.dot(nj) - a_jk_inlet.T.dot(self._inlet_values_biogas)
+        epsilon = 1e-10  # Small positive number
+        return a_jk.T.dot(nj + epsilon) - a_jk_inlet.T.dot(self._inlet_values_biogas + epsilon)
 
     
     def ic1(self, nj):
@@ -204,7 +205,8 @@ class Equilibrium(GasEquilibrium):
         n = np.array(n)
         nj = n[:-1] # moles of gas
         nc = n[-1]  # moles of carbon
-        gj = gr + self.R*self.T*np.log(nj / np.sum(nj) * self.P / self.P0)
+        epsilon = 1e-10  # Small positive number
+        gj = gr + self.R*self.T*np.log((nj + epsilon) / (np.sum(nj) + epsilon) * self.P / self.P0)
         return nj.dot(gj) + nc*self.dGf_carbon
 
     
